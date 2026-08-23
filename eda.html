@@ -1,0 +1,114 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>사회조사 EDA</title><style>
+:root{--ink:#1a1a1a;--muted:#5b5b5b;--navy:#1f3b5c;--line:#e3e6ea;--bg:#ffffff;--soft:#f5f7fa;--accent:#2a78d6}
+*{box-sizing:border-box}body{margin:0;font-family:'Malgun Gothic','Apple SD Gothic Neo','Noto Sans KR',sans-serif;color:var(--ink);background:var(--bg);line-height:1.65}
+header{background:var(--navy);color:#fff;padding:28px 20px}header .wrap{max-width:960px;margin:0 auto}
+header h1{margin:0 0 6px;font-size:1.5rem}header p{margin:0;opacity:.85;font-size:.95rem}
+nav{background:var(--soft);border-bottom:1px solid var(--line)}nav .wrap{max-width:960px;margin:0 auto;padding:10px 20px;display:flex;gap:18px;flex-wrap:wrap}
+nav a{color:var(--navy);text-decoration:none;font-weight:600}nav a:hover{text-decoration:underline}
+main{max-width:960px;margin:0 auto;padding:28px 20px 60px}
+h1,h2,h3{color:var(--navy);line-height:1.3}h2{margin-top:2.2em;padding-bottom:.3em;border-bottom:2px solid var(--line)}h3{margin-top:1.6em}
+table{border-collapse:collapse;width:100%;margin:12px 0 20px;font-size:.93rem;display:block;overflow-x:auto}
+th,td{border:1px solid var(--line);padding:7px 10px;text-align:left;white-space:nowrap}th{background:#dce6f1;font-weight:600}
+tr:nth-child(even) td{background:#fafbfc}
+.card{border:1px solid var(--line);border-radius:10px;padding:20px 22px;margin:16px 0;background:#fff}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+.card h3{margin-top:0}.card a.btn{display:inline-block;margin-top:8px;background:var(--accent);color:#fff;padding:8px 14px;border-radius:6px;text-decoration:none;font-weight:600}
+.kpi{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin:18px 0}
+.kpi div{background:var(--soft);border-radius:8px;padding:14px 16px}.kpi b{display:block;font-size:1.6rem;color:var(--navy)}.kpi span{color:var(--muted);font-size:.9rem}
+figure{margin:10px 0 26px}figure img{max-width:100%;height:auto;border:1px solid var(--line);border-radius:6px}
+.note{color:var(--muted);font-size:.9rem}footer{text-align:center;color:var(--muted);font-size:.85rem;padding:30px 0;border-top:1px solid var(--line)}
+code{background:var(--soft);padding:1px 5px;border-radius:4px;font-size:.9em}
+@media (max-width:600px){header h1{font-size:1.2rem}main{padding:18px 14px}}
+</style></head><body>
+<header><div class="wrap"><h1>복지서비스 매칭 앱 — 데이터 분석 보고서</h1><p>중앙부처 복지서비스 461개 × 통계청 사회조사·가계동향조사 | 2026 빅웨이브 공모전</p></div></header>
+<nav><div class="wrap"><a href="index.html">홈</a><a href="variables.html">변수화 통계 보고서</a><a href="eda.html" style=text-decoration:underline>사회조사 EDA</a></div></nav><main><h1>사회조사 2025 원변수 기초 EDA</h1><p>응답자 33,944명(만 13세 이상), 18,467가구. 표본 %는 원자료 비율, 가중 %는 전국 추정 비율. 라벨은 통계청 코드북 기준.</p>
+<div class="kpi"><div><b>51.6세</b><span>평균 연령</span></div><div><b>4.9%</b><span>장애인복지카드 소유</span></div><div><b>60.3%</b><span>경제활동 참여</span></div><div><b>29.1%</b><span>자녀 있음</span></div></div>
+<h2>1. 성별</h2>
+<table><tr><th>범주</th><th>표본 수</th><th>표본 %</th><th>가중 %</th></tr><tr><td>남</td><td>16,401</td><td>48.3</td><td>49.6</td></tr><tr><td>여</td><td>17,543</td><td>51.7</td><td>50.4</td></tr></table>
+<figure><img src="charts/chart_01.png" alt="성별 차트" loading="lazy"></figure>
+<h2>2. 만연령</h2>
+<p>평균 51.6세, 중앙값 53세, 표준편차 19.1, 범위 13~105세</p>
+<figure><img src="charts/chart_02.png" alt="만연령 차트" loading="lazy"></figure>
+<h2>3. 가구주와의 관계</h2>
+<table><tr><th>범주</th><th>표본 수</th><th>표본 %</th><th>가중 %</th></tr><tr><td>가구주</td><td>18,467</td><td>54.4</td><td>49.2</td></tr><tr><td>배우자</td><td>9,158</td><td>27.0</td><td>27.1</td></tr><tr><td>미혼 자녀</td><td>4,917</td><td>14.5</td><td>19.0</td></tr><tr><td>기혼자녀 및 그 배우자</td><td>227</td><td>0.7</td><td>0.7</td></tr><tr><td>손주 및 그 배우자</td><td>88</td><td>0.3</td><td>0.3</td></tr><tr><td>부모(배우자의 부모 포함)</td><td>714</td><td>2.1</td><td>2.2</td></tr><tr><td>조부모(배우자의 조부모 포함)</td><td>15</td><td>0.0</td><td>0.1</td></tr><tr><td>미혼 형제자매(배우자의 미혼 형제자매 포함)</td><td>136</td><td>0.4</td><td>0.5</td></tr><tr><td>기타 친인척</td><td>111</td><td>0.3</td><td>0.4</td></tr><tr><td>기타 동거인</td><td>111</td><td>0.3</td><td>0.5</td></tr></table>
+<figure><img src="charts/chart_03.png" alt="가구주와의 관계 차트" loading="lazy"></figure>
+<h2>4. 혼인상태</h2>
+<table><tr><th>범주</th><th>표본 수</th><th>표본 %</th><th>가중 %</th></tr><tr><td>미혼</td><td>8,317</td><td>24.5</td><td>29.0</td></tr><tr><td>배우자 있음</td><td>20,261</td><td>59.7</td><td>59.1</td></tr><tr><td>별거</td><td>281</td><td>0.8</td><td>0.7</td></tr><tr><td>이혼</td><td>2,008</td><td>5.9</td><td>5.0</td></tr><tr><td>사별</td><td>3,077</td><td>9.1</td><td>6.2</td></tr></table>
+<figure><img src="charts/chart_04.png" alt="혼인상태 차트" loading="lazy"></figure>
+<h2>5. 교육정도</h2>
+<table><tr><th>범주</th><th>표본 수</th><th>표본 %</th><th>가중 %</th></tr><tr><td>받지 않음</td><td>835</td><td>2.5</td><td>1.4</td></tr><tr><td>초등학교</td><td>3,279</td><td>9.7</td><td>7.0</td></tr><tr><td>중학교</td><td>3,744</td><td>11.0</td><td>9.8</td></tr><tr><td>고등학교</td><td>10,437</td><td>30.7</td><td>29.8</td></tr><tr><td>대학(교)(4년제 미만)</td><td>5,047</td><td>14.9</td><td>16.2</td></tr><tr><td>대학교(4년제 이상)</td><td>8,941</td><td>26.3</td><td>30.4</td></tr><tr><td>대학원 석사과정</td><td>1,314</td><td>3.9</td><td>4.3</td></tr><tr><td>대학원 박사 과정</td><td>347</td><td>1.0</td><td>1.1</td></tr></table>
+<figure><img src="charts/chart_05.png" alt="교육정도 차트" loading="lazy"></figure>
+<h2>6. 재학상태</h2>
+<p class=note>비해당·결측 835명 제외</p><table><tr><th>범주</th><th>표본 수</th><th>표본 %</th><th>가중 %</th></tr><tr><td>졸업</td><td>27,851</td><td>84.1</td><td>83.1</td></tr><tr><td>수료</td><td>342</td><td>1.0</td><td>1.1</td></tr><tr><td>재학</td><td>2,788</td><td>8.4</td><td>9.6</td></tr><tr><td>휴학</td><td>228</td><td>0.7</td><td>0.9</td></tr><tr><td>중퇴</td><td>1,900</td><td>5.7</td><td>5.3</td></tr></table>
+<figure><img src="charts/chart_06.png" alt="재학상태 차트" loading="lazy"></figure>
+<h2>7. 현재국적</h2>
+<table><tr><th>범주</th><th>표본 수</th><th>표본 %</th><th>가중 %</th></tr><tr><td>대한민국</td><td>33,388</td><td>98.4</td><td>98.0</td></tr><tr><td>외국</td><td>556</td><td>1.6</td><td>2.0</td></tr></table>
+<figure><img src="charts/chart_07.png" alt="현재국적 차트" loading="lazy"></figure>
+<h2>8. 거주 시도</h2>
+<table><tr><th>범주</th><th>표본 수</th><th>표본 %</th><th>가중 %</th></tr><tr><td>서울</td><td>3,009</td><td>8.9</td><td>18.3</td></tr><tr><td>부산</td><td>1,821</td><td>5.4</td><td>6.3</td></tr><tr><td>대구</td><td>1,693</td><td>5.0</td><td>4.6</td></tr><tr><td>인천</td><td>1,725</td><td>5.1</td><td>5.9</td></tr><tr><td>광주</td><td>1,367</td><td>4.0</td><td>2.8</td></tr><tr><td>대전</td><td>1,363</td><td>4.0</td><td>2.8</td></tr><tr><td>울산</td><td>1,424</td><td>4.2</td><td>2.1</td></tr><tr><td>세종</td><td>1,175</td><td>3.5</td><td>0.7</td></tr><tr><td>경기</td><td>4,466</td><td>13.2</td><td>26.6</td></tr><tr><td>강원</td><td>1,816</td><td>5.3</td><td>2.9</td></tr><tr><td>충북</td><td>1,903</td><td>5.6</td><td>3.2</td></tr><tr><td>충남</td><td>2,002</td><td>5.9</td><td>4.3</td></tr><tr><td>전북</td><td>2,064</td><td>6.1</td><td>3.4</td></tr><tr><td>전남</td><td>1,918</td><td>5.7</td><td>3.5</td></tr><tr><td>경북</td><td>2,371</td><td>7.0</td><td>5.0</td></tr><tr><td>경남</td><td>2,521</td><td>7.4</td><td>6.3</td></tr><tr><td>제주</td><td>1,306</td><td>3.8</td><td>1.3</td></tr></table>
+<figure><img src="charts/chart_08.png" alt="거주 시도 차트" loading="lazy"></figure>
+<h2>9. 동부/읍면부</h2>
+<table><tr><th>범주</th><th>표본 수</th><th>표본 %</th><th>가중 %</th></tr><tr><td>동부</td><td>24,826</td><td>73.1</td><td>82.5</td></tr><tr><td>읍면부</td><td>9,118</td><td>26.9</td><td>17.5</td></tr></table>
+<figure><img src="charts/chart_09.png" alt="동부/읍면부 차트" loading="lazy"></figure>
+<h2>10. 가구원수</h2>
+<table><tr><th>범주</th><th>표본 수</th><th>표본 %</th><th>가중 %</th></tr><tr><td>1인</td><td>7,168</td><td>21.1</td><td>14.9</td></tr><tr><td>2인</td><td>12,387</td><td>36.5</td><td>35.4</td></tr><tr><td>3인</td><td>7,133</td><td>21.0</td><td>24.5</td></tr><tr><td>4인 이상</td><td>7,256</td><td>21.4</td><td>25.2</td></tr></table>
+<figure><img src="charts/chart_10.png" alt="가구원수 차트" loading="lazy"></figure>
+<h2>11. 장애인복지카드 소유</h2>
+<table><tr><th>범주</th><th>표본 수</th><th>표본 %</th><th>가중 %</th></tr><tr><td>가지고 있다</td><td>2,052</td><td>6.0</td><td>4.9</td></tr><tr><td>가지고 있지 않다</td><td>31,892</td><td>94.0</td><td>95.1</td></tr></table>
+<figure><img src="charts/chart_11.png" alt="장애인복지카드 소유 차트" loading="lazy"></figure>
+<h2>12. 활동제약: 이동(계단)</h2>
+<table><tr><th>범주</th><th>표본 수</th><th>표본 %</th><th>가중 %</th></tr><tr><td>전혀 어렵지 않다</td><td>27,578</td><td>81.2</td><td>84.2</td></tr><tr><td>약간 어렵다</td><td>4,667</td><td>13.7</td><td>11.8</td></tr><tr><td>상당히 어렵다</td><td>1,567</td><td>4.6</td><td>3.7</td></tr><tr><td>전혀 할 수 없다</td><td>132</td><td>0.4</td><td>0.3</td></tr></table>
+<figure><img src="charts/chart_12.png" alt="활동제약: 이동(계단) 차트" loading="lazy"></figure>
+<h2>13. 활동제약: 기억·집중</h2>
+<table><tr><th>범주</th><th>표본 수</th><th>표본 %</th><th>가중 %</th></tr><tr><td>전혀 어렵지 않다</td><td>28,407</td><td>83.7</td><td>85.6</td></tr><tr><td>약간 어렵다</td><td>4,892</td><td>14.4</td><td>12.7</td></tr><tr><td>상당히 어렵다</td><td>606</td><td>1.8</td><td>1.5</td></tr><tr><td>전혀 할 수 없다</td><td>39</td><td>0.1</td><td>0.1</td></tr></table>
+<figure><img src="charts/chart_13.png" alt="활동제약: 기억·집중 차트" loading="lazy"></figure>
+<h2>14. 월평균 가구소득</h2>
+<p class=note>가구 단위 집계 (18,467가구)</p><table><tr><th>범주</th><th>표본 수</th><th>표본 %</th><th>가중 %</th></tr><tr><td>100만원 미만</td><td>3,223</td><td>17.5</td><td>14.2</td></tr><tr><td>100~200만원미만</td><td>2,774</td><td>15.0</td><td>13.0</td></tr><tr><td>200~300만원미만</td><td>3,144</td><td>17.0</td><td>16.3</td></tr><tr><td>300~400만원미만</td><td>2,701</td><td>14.6</td><td>15.2</td></tr><tr><td>400~500만원미만</td><td>1,986</td><td>10.8</td><td>11.7</td></tr><tr><td>500~600만원미만</td><td>1,585</td><td>8.6</td><td>9.4</td></tr><tr><td>600~700만원미만</td><td>885</td><td>4.8</td><td>5.5</td></tr><tr><td>700~800만원미만</td><td>685</td><td>3.7</td><td>4.5</td></tr><tr><td>800만원이상</td><td>1,484</td><td>8.0</td><td>10.4</td></tr></table>
+<figure><img src="charts/chart_14.png" alt="월평균 가구소득 차트" loading="lazy"></figure>
+<h2>15. 주관적 소득수준</h2>
+<p class=note>비해당·결측 15,491명 제외</p><table><tr><th>범주</th><th>표본 수</th><th>표본 %</th><th>가중 %</th></tr><tr><td>매우 여유 있다</td><td>315</td><td>1.7</td><td>1.9</td></tr><tr><td>약간 여유 있다</td><td>2,379</td><td>12.9</td><td>13.8</td></tr><tr><td>적정하다</td><td>6,186</td><td>33.5</td><td>33.1</td></tr><tr><td>약간 부족하다</td><td>6,989</td><td>37.9</td><td>37.1</td></tr><tr><td>매우 부족하다</td><td>2,584</td><td>14.0</td><td>14.1</td></tr></table>
+<figure><img src="charts/chart_15.png" alt="주관적 소득수준 차트" loading="lazy"></figure>
+<h2>16. 소득 만족도</h2>
+<p class=note>비해당·결측 6,489명 제외</p><table><tr><th>범주</th><th>표본 수</th><th>표본 %</th><th>가중 %</th></tr><tr><td>매우 만족한다</td><td>998</td><td>3.6</td><td>3.7</td></tr><tr><td>약간 만족한다</td><td>6,603</td><td>24.1</td><td>24.3</td></tr><tr><td>보통이다</td><td>9,674</td><td>35.2</td><td>34.4</td></tr><tr><td>약간 불만족한다</td><td>6,856</td><td>25.0</td><td>24.7</td></tr><tr><td>매우 불만족한다</td><td>3,324</td><td>12.1</td><td>12.9</td></tr></table>
+<figure><img src="charts/chart_16.png" alt="소득 만족도 차트" loading="lazy"></figure>
+<h2>17. 계층의식</h2>
+<table><tr><th>범주</th><th>표본 수</th><th>표본 %</th><th>가중 %</th></tr><tr><td>상상</td><td>336</td><td>1.0</td><td>1.2</td></tr><tr><td>상하</td><td>799</td><td>2.4</td><td>2.7</td></tr><tr><td>중상</td><td>8,209</td><td>24.2</td><td>25.0</td></tr><tr><td>중하</td><td>12,409</td><td>36.6</td><td>37.1</td></tr><tr><td>하상</td><td>6,919</td><td>20.4</td><td>19.4</td></tr><tr><td>하하</td><td>5,272</td><td>15.5</td><td>14.6</td></tr></table>
+<figure><img src="charts/chart_17.png" alt="계층의식 차트" loading="lazy"></figure>
+<h2>18. 생활비 마련방법 (60세+)</h2>
+<p class=note>비해당·결측 21,144명 제외</p><table><tr><th>범주</th><th>표본 수</th><th>표본 %</th><th>가중 %</th></tr><tr><td>본인 또는 배우자가 마련</td><td>10,125</td><td>79.1</td><td>79.7</td></tr><tr><td>자녀 또는 친척 지원</td><td>1,227</td><td>9.6</td><td>10.3</td></tr><tr><td>정부 및 사회단체 지원(정부 보조 등)</td><td>1,448</td><td>11.3</td><td>10.0</td></tr></table>
+<figure><img src="charts/chart_18.png" alt="생활비 마련방법 (60세+) 차트" loading="lazy"></figure>
+<h2>19. 현재 소득 유무</h2>
+<p class=note>비해당·결측 1,884명 제외</p><table><tr><th>범주</th><th>표본 수</th><th>표본 %</th><th>가중 %</th></tr><tr><td>있다</td><td>27,455</td><td>85.6</td><td>84.5</td></tr><tr><td>없다</td><td>4,605</td><td>14.4</td><td>15.5</td></tr></table>
+<figure><img src="charts/chart_19.png" alt="현재 소득 유무 차트" loading="lazy"></figure>
+<h2>20. 거처 종류</h2>
+<p class=note>가구 단위 집계 (18,467가구)</p><table><tr><th>범주</th><th>표본 수</th><th>표본 %</th><th>가중 %</th></tr><tr><td>단독주택</td><td>6,644</td><td>36.0</td><td>28.8</td></tr><tr><td>아파트</td><td>9,274</td><td>50.2</td><td>53.9</td></tr><tr><td>연립·다세대주택</td><td>1,770</td><td>9.6</td><td>12.3</td></tr><tr><td>기타</td><td>779</td><td>4.2</td><td>5.0</td></tr></table>
+<figure><img src="charts/chart_20.png" alt="거처 종류 차트" loading="lazy"></figure>
+<h2>21. 주택 점유형태</h2>
+<p class=note>가구 단위 집계 (18,467가구)</p><table><tr><th>범주</th><th>표본 수</th><th>표본 %</th><th>가중 %</th></tr><tr><td>자가</td><td>11,302</td><td>61.2</td><td>56.7</td></tr><tr><td>전세</td><td>2,139</td><td>11.6</td><td>15.0</td></tr><tr><td>보증금 있는 월세</td><td>3,950</td><td>21.4</td><td>23.2</td></tr><tr><td>보증금 없는 월세(사글세)</td><td>297</td><td>1.6</td><td>1.4</td></tr><tr><td>무상(자가는 아니지만 세 없이 무상으로 사는 경우)</td><td>779</td><td>4.2</td><td>3.7</td></tr></table>
+<figure><img src="charts/chart_21.png" alt="주택 점유형태 차트" loading="lazy"></figure>
+<h2>22. 경제활동 여부</h2>
+<table><tr><th>범주</th><th>표본 수</th><th>표본 %</th><th>가중 %</th></tr><tr><td>하였다</td><td>20,158</td><td>59.4</td><td>60.3</td></tr><tr><td>하지 않았다</td><td>13,786</td><td>40.6</td><td>39.7</td></tr></table>
+<figure><img src="charts/chart_22.png" alt="경제활동 여부 차트" loading="lazy"></figure>
+<h2>23. 종사상 지위</h2>
+<p class=note>비해당·결측 13,786명 제외</p><table><tr><th>범주</th><th>표본 수</th><th>표본 %</th><th>가중 %</th></tr><tr><td>임금근로자</td><td>14,749</td><td>73.2</td><td>76.6</td></tr><tr><td>고용원이 있는 자영업자</td><td>1,083</td><td>5.4</td><td>5.7</td></tr><tr><td>고용원이 없는 자영없자</td><td>3,460</td><td>17.2</td><td>14.5</td></tr><tr><td>무급 가족 종사자</td><td>866</td><td>4.3</td><td>3.3</td></tr></table>
+<figure><img src="charts/chart_23.png" alt="종사상 지위 차트" loading="lazy"></figure>
+<h2>24. 임금근로자 구분</h2>
+<p class=note>비해당·결측 19,195명 제외</p><table><tr><th>범주</th><th>표본 수</th><th>표본 %</th><th>가중 %</th></tr><tr><td>상용근로자</td><td>10,615</td><td>72.0</td><td>74.4</td></tr><tr><td>임시근로자</td><td>2,963</td><td>20.1</td><td>17.6</td></tr><tr><td>일용근로자</td><td>1,171</td><td>7.9</td><td>7.9</td></tr></table>
+<figure><img src="charts/chart_24.png" alt="임금근로자 구분 차트" loading="lazy"></figure>
+<h2>25. 직장 산업대분류</h2>
+<p class=note>비해당·결측 13,786명 제외</p><table><tr><th>범주</th><th>표본 수</th><th>표본 %</th><th>가중 %</th></tr><tr><td>농업, 임업 및 어업</td><td>1,651</td><td>8.2</td><td>5.0</td></tr><tr><td>광업</td><td>12</td><td>0.1</td><td>0.0</td></tr><tr><td>제조업</td><td>3,127</td><td>15.5</td><td>16.5</td></tr><tr><td>전기, 가스, 증기 및 공기조절 공급업</td><td>110</td><td>0.5</td><td>0.6</td></tr><tr><td>수도, 하수 및 폐기물 처리, 원료 재생업</td><td>124</td><td>0.6</td><td>0.7</td></tr><tr><td>건설업</td><td>1,471</td><td>7.3</td><td>7.2</td></tr><tr><td>도매 및 소매업</td><td>1,960</td><td>9.7</td><td>11.1</td></tr><tr><td>운수 및 창고업</td><td>1,066</td><td>5.3</td><td>5.6</td></tr><tr><td>숙박 및 음식점업</td><td>1,598</td><td>7.9</td><td>7.9</td></tr><tr><td>정보통신업</td><td>473</td><td>2.3</td><td>3.5</td></tr><tr><td>금융 및 보험업</td><td>471</td><td>2.3</td><td>2.7</td></tr><tr><td>부동산업</td><td>404</td><td>2.0</td><td>2.0</td></tr><tr><td>전문, 과학 및 기술 서비스업</td><td>746</td><td>3.7</td><td>4.6</td></tr><tr><td>사업시설 관리,  사업지원 및 임대 서비스업</td><td>719</td><td>3.6</td><td>3.9</td></tr><tr><td>공공행정, 국방 및 사회보장 행정</td><td>1,118</td><td>5.5</td><td>4.6</td></tr><tr><td>교육 서비스업</td><td>1,392</td><td>6.9</td><td>7.1</td></tr><tr><td>보건업 및 사회복지 서비스업</td><td>2,536</td><td>12.6</td><td>11.3</td></tr><tr><td>예술, 스포츠 및 여가관련 서비스업</td><td>366</td><td>1.8</td><td>1.9</td></tr><tr><td>협회 및 단체, 수리  및 기타 개인 서비스업</td><td>776</td><td>3.8</td><td>3.5</td></tr><tr><td>가구내 고용활동 및 달리 분류되지 않은 자가소비 생산활동</td><td>29</td><td>0.1</td><td>0.2</td></tr><tr><td>국제 및 외국기관</td><td>9</td><td>0.0</td><td>0.1</td></tr></table>
+<figure><img src="charts/chart_25.png" alt="직장 산업대분류 차트" loading="lazy"></figure>
+<h2>26. 직업대분류</h2>
+<p class=note>비해당·결측 13,786명 제외</p><table><tr><th>범주</th><th>표본 수</th><th>표본 %</th><th>가중 %</th></tr><tr><td>관리자</td><td>2</td><td>0.0</td><td>0.0</td></tr><tr><td>전문가 및 관련 종사자</td><td>93</td><td>0.5</td><td>0.4</td></tr><tr><td>사무 종사자</td><td>151</td><td>0.7</td><td>0.6</td></tr><tr><td>서비스 종사자</td><td>91</td><td>0.5</td><td>0.3</td></tr><tr><td>판매 종사자</td><td>53</td><td>0.3</td><td>0.2</td></tr><tr><td>농림·어업 숙련？종사자</td><td>58</td><td>0.3</td><td>0.1</td></tr><tr><td>기능원 및 관련 기능 종사자</td><td>59</td><td>0.3</td><td>0.2</td></tr><tr><td>장치·기계조작 및 조립 종사자</td><td>112</td><td>0.6</td><td>0.4</td></tr><tr><td>단순노무 종사자</td><td>97</td><td>0.5</td><td>0.3</td></tr><tr><td>관리자</td><td>391</td><td>1.9</td><td>1.9</td></tr><tr><td>전문가 및 관련 종사자</td><td>3,577</td><td>17.7</td><td>20.7</td></tr><tr><td>사무 종사자</td><td>3,481</td><td>17.3</td><td>20.1</td></tr><tr><td>서비스 종사자</td><td>2,674</td><td>13.3</td><td>12.6</td></tr><tr><td>판매 종사자</td><td>1,597</td><td>7.9</td><td>8.6</td></tr><tr><td>농림·어업 숙련？종사자</td><td>1,529</td><td>7.6</td><td>4.7</td></tr><tr><td>기능원 및 관련 기능 종사자</td><td>1,696</td><td>8.4</td><td>8.1</td></tr><tr><td>장치·기계조작 및 조립 종사자</td><td>1,806</td><td>9.0</td><td>8.7</td></tr><tr><td>단순노무 종사자</td><td>2,633</td><td>13.1</td><td>11.7</td></tr><tr><td>군인</td><td>58</td><td>0.3</td><td>0.4</td></tr></table>
+<figure><img src="charts/chart_26.png" alt="직업대분류 차트" loading="lazy"></figure>
+<h2>27. 고용 안정성 인식</h2>
+<p class=note>비해당·결측 13,839명 제외</p><table><tr><th>범주</th><th>표본 수</th><th>표본 %</th><th>가중 %</th></tr><tr><td>매우 많이 느낀다</td><td>2,580</td><td>12.8</td><td>14.1</td></tr><tr><td>느끼는 편이다</td><td>7,868</td><td>39.1</td><td>40.2</td></tr><tr><td>느끼지 않는 편이다</td><td>7,263</td><td>36.1</td><td>34.6</td></tr><tr><td>전혀 느끼지 않는다</td><td>2,394</td><td>11.9</td><td>11.1</td></tr></table>
+<figure><img src="charts/chart_27.png" alt="고용 안정성 인식 차트" loading="lazy"></figure>
+<h2>28. 자녀 유무</h2>
+<p class=note>비해당·결측 21,144명 제외</p><table><tr><th>범주</th><th>표본 수</th><th>표본 %</th><th>가중 %</th></tr><tr><td>있다</td><td>12,202</td><td>95.3</td><td>95.4</td></tr><tr><td>없다</td><td>598</td><td>4.7</td><td>4.6</td></tr></table>
+<figure><img src="charts/chart_28.png" alt="자녀 유무 차트" loading="lazy"></figure>
+<h2>29. 자녀 동거 여부</h2>
+<p class=note>비해당·결측 21,742명 제외</p><table><tr><th>범주</th><th>표본 수</th><th>표본 %</th><th>가중 %</th></tr><tr><td>같이 살고 있다</td><td>2,706</td><td>22.2</td><td>27.9</td></tr><tr><td>같이 살고 있지 않다</td><td>9,496</td><td>77.8</td><td>72.1</td></tr></table>
+<figure><img src="charts/chart_29.png" alt="자녀 동거 여부 차트" loading="lazy"></figure></main>
+<footer>데이터 출처: 복지로(중앙부처 복지서비스), 통계청 사회조사 2025·가계동향조사 2025 마이크로데이터 | 원자료는 비공개, 집계 결과만 게시</footer></body></html>

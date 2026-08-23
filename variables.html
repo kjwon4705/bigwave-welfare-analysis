@@ -1,0 +1,410 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>변수화 통계 보고서</title><style>
+:root{--ink:#1a1a1a;--muted:#5b5b5b;--navy:#1f3b5c;--line:#e3e6ea;--bg:#ffffff;--soft:#f5f7fa;--accent:#2a78d6}
+*{box-sizing:border-box}body{margin:0;font-family:'Malgun Gothic','Apple SD Gothic Neo','Noto Sans KR',sans-serif;color:var(--ink);background:var(--bg);line-height:1.65}
+header{background:var(--navy);color:#fff;padding:28px 20px}header .wrap{max-width:960px;margin:0 auto}
+header h1{margin:0 0 6px;font-size:1.5rem}header p{margin:0;opacity:.85;font-size:.95rem}
+nav{background:var(--soft);border-bottom:1px solid var(--line)}nav .wrap{max-width:960px;margin:0 auto;padding:10px 20px;display:flex;gap:18px;flex-wrap:wrap}
+nav a{color:var(--navy);text-decoration:none;font-weight:600}nav a:hover{text-decoration:underline}
+main{max-width:960px;margin:0 auto;padding:28px 20px 60px}
+h1,h2,h3{color:var(--navy);line-height:1.3}h2{margin-top:2.2em;padding-bottom:.3em;border-bottom:2px solid var(--line)}h3{margin-top:1.6em}
+table{border-collapse:collapse;width:100%;margin:12px 0 20px;font-size:.93rem;display:block;overflow-x:auto}
+th,td{border:1px solid var(--line);padding:7px 10px;text-align:left;white-space:nowrap}th{background:#dce6f1;font-weight:600}
+tr:nth-child(even) td{background:#fafbfc}
+.card{border:1px solid var(--line);border-radius:10px;padding:20px 22px;margin:16px 0;background:#fff}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+.card h3{margin-top:0}.card a.btn{display:inline-block;margin-top:8px;background:var(--accent);color:#fff;padding:8px 14px;border-radius:6px;text-decoration:none;font-weight:600}
+.kpi{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin:18px 0}
+.kpi div{background:var(--soft);border-radius:8px;padding:14px 16px}.kpi b{display:block;font-size:1.6rem;color:var(--navy)}.kpi span{color:var(--muted);font-size:.9rem}
+figure{margin:10px 0 26px}figure img{max-width:100%;height:auto;border:1px solid var(--line);border-radius:6px}
+.note{color:var(--muted);font-size:.9rem}footer{text-align:center;color:var(--muted);font-size:.85rem;padding:30px 0;border-top:1px solid var(--line)}
+code{background:var(--soft);padding:1px 5px;border-radius:4px;font-size:.9em}
+@media (max-width:600px){header h1{font-size:1.2rem}main{padding:18px 14px}}
+</style></head><body>
+<header><div class="wrap"><h1>복지서비스 매칭 앱 — 데이터 분석 보고서</h1><p>중앙부처 복지서비스 461개 × 통계청 사회조사·가계동향조사 | 2026 빅웨이브 공모전</p></div></header>
+<nav><div class="wrap"><a href="index.html">홈</a><a href="variables.html" style=text-decoration:underline>변수화 통계 보고서</a><a href="eda.html">사회조사 EDA</a></div></nav><main><h1>중앙부처 복지서비스 지원조건 변수화 통계 보고서</h1><ul>
+<li>작성일: 2026-08-21</li>
+<li>대상 데이터: 중앙부처 복지서비스 461개 (복지로, D그룹 65건 재수집 병합본)</li>
+<li>산출물: <code>분석/Processed_data/중앙부처복지서비스_변수화.csv</code> (461행 × 52열, 조건 변수 40개)</li>
+<li>생성 스크립트: <code>Code/변수화_중앙부처복지서비스.py</code></li>
+</ul>
+<h2>1. 변수 체계 개요</h2>
+<p>자유 텍스트로만 존재하던 지원조건(지원대상 상세·선정기준)을 매칭 엔진이 사용할 수 있는
+변수로 인코딩했다. 범주형 변수는 공통 코딩 체계를 따른다:</p>
+<table>
+<thead>
+<tr>
+<th>코드</th>
+<th>의미</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>해당 조건·대상이면 <strong>받을 수 없음</strong> (배제)</td>
+</tr>
+<tr>
+<td>1</td>
+<td>해당 조건·대상과 <strong>무관하게 받을 수 있음</strong> (기본값)</td>
+</tr>
+<tr>
+<td>2</td>
+<td>해당 조건·대상<strong>이어야만 받을 수 있음</strong> (전용/필수)</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>같은 축에서 여러 변수가 2인 경우는 OR 그룹(그중 하나만 충족하면 됨)으로 해석한다.</li>
+<li>판정 불명확 시 제외하지 않는 <strong>관대한 필터</strong> 원칙을 따른다.</li>
+</ul>
+<h2>2. 생애주기 변수 (7개)</h2>
+<p>복지로 생애주기 태그 기반. 분류·표시용이며, 연령 판정은 §6 연령 변수가 담당한다.</p>
+<table>
+<thead>
+<tr>
+<th>변수</th>
+<th>0 (불가)</th>
+<th>1 (가능/무관)</th>
+<th>2 (전용/필수)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>생애주기_영유아</td>
+<td>239</td>
+<td>210</td>
+<td>12</td>
+</tr>
+<tr>
+<td>생애주기_아동</td>
+<td>211</td>
+<td>243</td>
+<td>7</td>
+</tr>
+<tr>
+<td>생애주기_청소년</td>
+<td>191</td>
+<td>259</td>
+<td>11</td>
+</tr>
+<tr>
+<td>생애주기_청년</td>
+<td>143</td>
+<td>301</td>
+<td>17</td>
+</tr>
+<tr>
+<td>생애주기_중장년</td>
+<td>168</td>
+<td>291</td>
+<td>2</td>
+</tr>
+<tr>
+<td>생애주기_노년</td>
+<td>165</td>
+<td>270</td>
+<td>26</td>
+</tr>
+<tr>
+<td>생애주기_임신출산</td>
+<td>269</td>
+<td>181</td>
+<td>11</td>
+</tr>
+</tbody>
+</table>
+<h2>3. 지원대상 변수 (7개)</h2>
+<p>전용(2) 판정 = 지원대상 태그 단독 ∪ 서비스명 키워드. 한부모·조손, 다문화·탈북민은 결합 태그를 키워드로 분리(양쪽 2 = OR 그룹).</p>
+<table>
+<thead>
+<tr>
+<th>변수</th>
+<th>0 (불가)</th>
+<th>1 (가능/무관)</th>
+<th>2 (전용/필수)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>장애인</td>
+<td>0</td>
+<td>386</td>
+<td>75</td>
+</tr>
+<tr>
+<td>저소득</td>
+<td>0</td>
+<td>396</td>
+<td>65</td>
+</tr>
+<tr>
+<td>보훈대상자</td>
+<td>0</td>
+<td>421</td>
+<td>40</td>
+</tr>
+<tr>
+<td>한부모</td>
+<td>0</td>
+<td>451</td>
+<td>10</td>
+</tr>
+<tr>
+<td>조손</td>
+<td>0</td>
+<td>456</td>
+<td>5</td>
+</tr>
+<tr>
+<td>다문화</td>
+<td>0</td>
+<td>451</td>
+<td>10</td>
+</tr>
+<tr>
+<td>탈북민</td>
+<td>0</td>
+<td>446</td>
+<td>15</td>
+</tr>
+</tbody>
+</table>
+<h2>4. 자녀 변수 (4개)</h2>
+<p>자녀여부=2는 자녀·양육 키워드 또는 미성년 전용 서비스(신청자=부모). 자녀_연령대는 요구되는 자녀의 나이대(복수 2 = OR).</p>
+<table>
+<thead>
+<tr>
+<th>변수</th>
+<th>0 (불가)</th>
+<th>1 (가능/무관)</th>
+<th>2 (전용/필수)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>자녀여부</td>
+<td>0</td>
+<td>309</td>
+<td>152</td>
+</tr>
+<tr>
+<td>자녀_영유아</td>
+<td>0</td>
+<td>357</td>
+<td>104</td>
+</tr>
+<tr>
+<td>자녀_아동</td>
+<td>0</td>
+<td>339</td>
+<td>122</td>
+</tr>
+<tr>
+<td>자녀_청소년</td>
+<td>0</td>
+<td>344</td>
+<td>117</td>
+</tr>
+</tbody>
+</table>
+<h2>5. 거주지역 변수 (2개)</h2>
+<ul>
+<li><code>거주지역</code>: 조건없음(0) 430 / 지역 차등·특례(1) 25 / 특정 지역 전용(2) 6</li>
+<li><code>거주지역_상세</code>: 1·2인 경우 시도명·지역유형 나열</li>
+<li>
+<p>지역 전용(2) 목록:</p>
+</li>
+<li>
+<p>경남동행론(직접대출) → 경남</p>
+</li>
+<li>한국형 상병수당 시범사업 → 강원,경기,경남,경북,대구,서울,전남,전북,충남,충북</li>
+<li>도서민 여객선 운임지원 → 제주,도서지역</li>
+<li>권역재활병원 공공재활프로그램 운영지원 → 강원,경북,대전,제주</li>
+<li>농어촌 기본소득 시범사업 → 농어촌</li>
+<li>고혈압·당뇨병 등록관리사업 → 강원,경기,경남,경북,광주,서울,세종,울산,전남,전북,제주</li>
+</ul>
+<h2>6. 연령 변수 (3개)</h2>
+<ul>
+<li><code>연령필요</code>: 조건없음(0) 144 / 태그 기반 근사(1) 168 / 텍스트 명시(2) 149</li>
+<li><code>최소연령</code>·<code>최대연령</code>: 연령필요 1·2인 경우만 값 존재. 역전(최소&gt;최대) 파싱은 무효화 처리</li>
+<li>텍스트 명시 149건: 하한 보유 92건(최빈 18세), 상한 보유 97건(최빈 17세)</li>
+<li>자녀 대상 서비스(자녀여부=2)의 연령은 자녀 나이 기준</li>
+</ul>
+<h2>7. 취업여부 변수</h2>
+<p>0 = 취업하면 못 받음(구직·실업자 전용) / 2 = 취업해야만(재직자·근로자 대상).</p>
+<table>
+<thead>
+<tr>
+<th>변수</th>
+<th>0 (불가)</th>
+<th>1 (가능/무관)</th>
+<th>2 (전용/필수)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>취업여부</td>
+<td>21</td>
+<td>404</td>
+<td>36</td>
+</tr>
+</tbody>
+</table>
+<h2>8. 신분 변수 (4개)</h2>
+<p>근로자 조건은 취업여부 변수가 담당(중복 변수 방지). 학생은 자녀 신분일 수 있음(자녀여부와 함께 해석).</p>
+<table>
+<thead>
+<tr>
+<th>변수</th>
+<th>0 (불가)</th>
+<th>1 (가능/무관)</th>
+<th>2 (전용/필수)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>학생</td>
+<td>0</td>
+<td>406</td>
+<td>55</td>
+</tr>
+<tr>
+<td>자영업</td>
+<td>0</td>
+<td>442</td>
+<td>19</td>
+</tr>
+<tr>
+<td>1인가구</td>
+<td>0</td>
+<td>450</td>
+<td>11</td>
+</tr>
+<tr>
+<td>농어업</td>
+<td>0</td>
+<td>451</td>
+<td>10</td>
+</tr>
+</tbody>
+</table>
+<h2>9. 소득 변수 (4개)</h2>
+<ul>
+<li><code>소득상한_중위소득%</code> (숫자): 68개 서비스 보유, 범위 32~250%</li>
+<li>분포: 32%(2), 40%(1), 45%(1), 48%(1), 50%(16), 52%(1), 60%(1), 63%(1), 65%(1), 70%(2), 72%(2), 75%(8), 80%(2), 100%(11), 120%(6), 125%(2), 150%(4), 160%(1), 180%(1), 200%(3), 250%(1)</li>
+<li><code>수급자차상위</code>: 0=0 / 1=357 / 2=104</li>
+<li><code>수급자</code>: 0=6 / 1=356 / 2=99</li>
+<li><code>차상위</code>: 0=0 / 1=407 / 2=54</li>
+<li>수급자=0(수급자 제외 명시) 서비스 존재 — 차상위 전용 사업 등</li>
+<li>수급·차상위와 % 상한 병기 시 OR 구조로 보아 1 유지 (관대 필터)</li>
+</ul>
+<h2>10. 질병 변수 (2개)</h2>
+<ul>
+<li><code>질병유무</code>: 무관(1) 367 / 질병·환자여야만(2) 94</li>
+<li><code>질병명_상세</code> 유형 분포 (중복): 기타·미분류(33), 일반상병(입원·치료중)(19), 희귀·중증난치질환(19), 정신질환·우울(14), 암(13), 만성질환(12), 노인성질환(11), 치매(7), 결핵(5), 산재·업무상재해(5), 감염병·격리(4), 선천성·소아질환(3)</li>
+<li>앱 입력(질환 유형 체크리스트 + 산정특례·장기요양·산재 등록 여부)과 1:1 대응</li>
+</ul>
+<h2>11. 위기 변수 (2개)</h2>
+<ul>
+<li><code>위기유무</code>: 무관(1) 408 / 위기·피해 상황(2) 53</li>
+<li><code>위기유형_상세</code> 유형 분포 (중복): 가정폭력·성폭력피해(21), 학대피해(20), 노숙(15), 쉼터·보호시설(12), 위기청소년·고립(12), 긴급위기상황(11), 자살·정신위기(10), 기타·미분류(8), 범죄피해(4)</li>
+<li>민감정보 — 기본 입력 폼이 아닌 '긴급·위기 상황별 찾기' 별도 진입로용 (필터 아님)</li>
+</ul>
+<h2>12. 앱 입력 연동·절차 변수 (5개)</h2>
+<p>재산은 금액 판정 불가 → 안내 배지용. 기관판정=2는 자동 판정 불가 → '기관 확인 필요' 안내.</p>
+<table>
+<thead>
+<tr>
+<th>변수</th>
+<th>0 (불가)</th>
+<th>1 (가능/무관)</th>
+<th>2 (전용/필수)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>국적체류</td>
+<td>0</td>
+<td>420</td>
+<td>41</td>
+</tr>
+<tr>
+<td>군인병역</td>
+<td>0</td>
+<td>437</td>
+<td>24</td>
+</tr>
+<tr>
+<td>보호종료</td>
+<td>0</td>
+<td>451</td>
+<td>10</td>
+</tr>
+<tr>
+<td>재산</td>
+<td>0</td>
+<td>413</td>
+<td>48</td>
+</tr>
+<tr>
+<td>기관판정</td>
+<td>0</td>
+<td>379</td>
+<td>82</td>
+</tr>
+</tbody>
+</table>
+<h2>13. 조건 커버리지 (핵심 결과)</h2>
+<table>
+<thead>
+<tr>
+<th>단계</th>
+<th>완전 커버</th>
+<th>비율</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>복지로 태그 변수만</td>
+<td>90개</td>
+<td>20%</td>
+</tr>
+<tr>
+<td>+ 자녀·소득 변수</td>
+<td>106개</td>
+<td>23%</td>
+</tr>
+<tr>
+<td>+ 연령·신분·지역·취업 변수</td>
+<td>196개</td>
+<td>43%</td>
+</tr>
+<tr>
+<td>+ 질병·위기·국적·군인·보호종료·재산</td>
+<td>332개</td>
+<td>72%</td>
+</tr>
+<tr>
+<td><strong>+ D그룹 65건 재수집 (최종)</strong></td>
+<td><strong>391개</strong></td>
+<td><strong>85%</strong></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>최종 상태: 조건 텍스트 보유 461/461 (100%), 변수로 조건 표현 완료 391개</li>
+<li>사용자 입력만으로 자동 판정 가능: 333개 (72%)</li>
+<li>기관 판정·심의 병행(확인 필요 안내): 58개</li>
+<li>잔여 미커버 70개의 조건: 소득인정액(32), 건강보험료(8), 소득분위구간(5), 중위소득NA(10), 예술인(5), 가구원수(18), 중복금지(6)</li>
+<li>소득인정액·건강보험료는 수급자 입력으로, 가구원수 기준은 중위소득 % 판정에 실질 흡수 → 실질 커버 약 90%</li>
+</ul>
+<h2>14. 한계 및 검수 대상</h2>
+<ul>
+<li>정규식 기반 인코딩의 오탐 가능성: 전용(2) 코딩 서비스는 최종 매칭 전 검수 권장</li>
+<li>확인된 사례: '아동수당 수급자'(수급자 오탐), '무주택세대구성원'(지역 '대구' 오탐 — 보정 완료),
+    '군인연금 수급자 제외'(군인병역 방향 오류), 질병 기타·미분류 그룹</li>
+<li>수급자·차상위, 장애, 보훈, 다문화·탈북, 국적, 질병, 임신, 거주지(시군구)는 조사 데이터로
+  판정 불가 → 앱 직접 입력 항목으로 설계 (본인이 가장 정확히 아는 정보)</li>
+<li>재수집분(65건)은 2026-08-21 복지로 기준으로, 원본(8/14 수집)과 시점 차이 존재</li>
+</ul></main>
+<footer>데이터 출처: 복지로(중앙부처 복지서비스), 통계청 사회조사 2025·가계동향조사 2025 마이크로데이터 | 원자료는 비공개, 집계 결과만 게시</footer></body></html>

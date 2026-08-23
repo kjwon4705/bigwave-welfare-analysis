@@ -1,0 +1,56 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>복지서비스 매칭 분석 보고서</title><style>
+:root{--ink:#1a1a1a;--muted:#5b5b5b;--navy:#1f3b5c;--line:#e3e6ea;--bg:#ffffff;--soft:#f5f7fa;--accent:#2a78d6}
+*{box-sizing:border-box}body{margin:0;font-family:'Malgun Gothic','Apple SD Gothic Neo','Noto Sans KR',sans-serif;color:var(--ink);background:var(--bg);line-height:1.65}
+header{background:var(--navy);color:#fff;padding:28px 20px}header .wrap{max-width:960px;margin:0 auto}
+header h1{margin:0 0 6px;font-size:1.5rem}header p{margin:0;opacity:.85;font-size:.95rem}
+nav{background:var(--soft);border-bottom:1px solid var(--line)}nav .wrap{max-width:960px;margin:0 auto;padding:10px 20px;display:flex;gap:18px;flex-wrap:wrap}
+nav a{color:var(--navy);text-decoration:none;font-weight:600}nav a:hover{text-decoration:underline}
+main{max-width:960px;margin:0 auto;padding:28px 20px 60px}
+h1,h2,h3{color:var(--navy);line-height:1.3}h2{margin-top:2.2em;padding-bottom:.3em;border-bottom:2px solid var(--line)}h3{margin-top:1.6em}
+table{border-collapse:collapse;width:100%;margin:12px 0 20px;font-size:.93rem;display:block;overflow-x:auto}
+th,td{border:1px solid var(--line);padding:7px 10px;text-align:left;white-space:nowrap}th{background:#dce6f1;font-weight:600}
+tr:nth-child(even) td{background:#fafbfc}
+.card{border:1px solid var(--line);border-radius:10px;padding:20px 22px;margin:16px 0;background:#fff}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+.card h3{margin-top:0}.card a.btn{display:inline-block;margin-top:8px;background:var(--accent);color:#fff;padding:8px 14px;border-radius:6px;text-decoration:none;font-weight:600}
+.kpi{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin:18px 0}
+.kpi div{background:var(--soft);border-radius:8px;padding:14px 16px}.kpi b{display:block;font-size:1.6rem;color:var(--navy)}.kpi span{color:var(--muted);font-size:.9rem}
+figure{margin:10px 0 26px}figure img{max-width:100%;height:auto;border:1px solid var(--line);border-radius:6px}
+.note{color:var(--muted);font-size:.9rem}footer{text-align:center;color:var(--muted);font-size:.85rem;padding:30px 0;border-top:1px solid var(--line)}
+code{background:var(--soft);padding:1px 5px;border-radius:4px;font-size:.9em}
+@media (max-width:600px){header h1{font-size:1.2rem}main{padding:18px 14px}}
+</style></head><body>
+<header><div class="wrap"><h1>복지서비스 매칭 앱 — 데이터 분석 보고서</h1><p>중앙부처 복지서비스 461개 × 통계청 사회조사·가계동향조사 | 2026 빅웨이브 공모전</p></div></header>
+<nav><div class="wrap"><a href="index.html" style=text-decoration:underline>홈</a><a href="variables.html">변수화 통계 보고서</a><a href="eda.html">사회조사 EDA</a></div></nav><main>
+<h1>분석 개요</h1>
+<p>복지로에 등록된 <b>중앙부처 복지서비스 461개</b>의 자유 텍스트 지원조건을 매칭 엔진이 쓸 수 있는 <b>변수 40개</b>로 인코딩하고,
+통계청 <b>사회조사 2025(33,944명)</b>·<b>가계동향조사 2025(13,524가구)</b> 마이크로데이터를 같은 변수 체계로 정렬해
+"내 정보를 입력하면 받을 수 있는 복지서비스를 찾아주는 앱"의 데이터 기반을 구축했습니다.</p>
+<div class="kpi">
+ <div><b>461</b><span>중앙부처 복지서비스</span></div>
+ <div><b>40</b><span>인코딩한 조건 변수</span></div>
+ <div><b>85%</b><span>변수로 조건 표현 완료 (391/461)</span></div>
+ <div><b>72%</b><span>사용자 입력만으로 자동 판정 (333/461)</span></div>
+</div>
+<h2>보고서</h2>
+<div class="cards">
+ <div class="card"><h3>① 변수화 통계 보고서</h3><p>지원조건 변수 40개의 코딩 체계(0/1/2)와 분포, 조건 커버리지 진행 추이(태그 20% → 변수화 72% → 재수집 85%), 한계·검수 대상.</p><a class="btn" href="variables.html">보고서 보기</a></div>
+ <div class="card"><h3>② 사회조사 원변수 EDA</h3><p>매칭에 쓰이는 사회조사 원변수 29개의 빈도표(표본·가중)와 차트 — 인구·장애·소득·노동·자녀 등.</p><a class="btn" href="eda.html">보고서 보기</a></div>
+</div>
+<h2>핵심 결과 요약</h2>
+<table><tr><th>단계</th><th>완전 커버 서비스</th><th>비율</th></tr>
+<tr><td>복지로 태그 변수만</td><td>90</td><td>20%</td></tr>
+<tr><td>+ 자녀·소득 변수</td><td>106</td><td>23%</td></tr>
+<tr><td>+ 연령·신분·지역·취업 변수</td><td>196</td><td>43%</td></tr>
+<tr><td>+ 질병·위기·국적·군인·보호종료·재산</td><td>332</td><td>72%</td></tr>
+<tr><td><b>+ 미수집 65건 재수집 (최종)</b></td><td><b>391</b></td><td><b>85%</b></td></tr></table>
+<h2>데이터 처리 원칙</h2>
+<ul>
+<li><b>3값 코딩</b>: 0 = 해당 대상이면 받을 수 없음 / 1 = 무관하게 받을 수 있음 / 2 = 해당 대상이어야만 받을 수 있음</li>
+<li><b>관대한 필터</b>: 판정이 불명확하면 제외하지 않음 — 자격 있는 사람을 놓치지 않는 설계</li>
+<li><b>데이터 + 앱 입력 이원화</b>: 조사 데이터로 판정 불가한 항목(수급자·장애·보훈·다문화·임신·거주지 시군구 등)은 사용자 입력으로 해결</li>
+<li>전용(2) 코딩은 정규식·태그 휴리스틱 기반이라 최종 매칭 전 검수 대상 (보고서 §14)</li>
+</ul>
+</main>
+<footer>데이터 출처: 복지로(중앙부처 복지서비스), 통계청 사회조사 2025·가계동향조사 2025 마이크로데이터 | 원자료는 비공개, 집계 결과만 게시</footer></body></html>
