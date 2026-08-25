@@ -1,0 +1,57 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>데이터·공통변수</title><style>
+:root{--ink:#1a1a1a;--muted:#5b5b5b;--navy:#1f3b5c;--line:#e3e6ea;--bg:#ffffff;--soft:#f5f7fa;--accent:#2a78d6}
+*{box-sizing:border-box}body{margin:0;font-family:'Malgun Gothic','Apple SD Gothic Neo','Noto Sans KR',sans-serif;color:var(--ink);background:var(--bg);line-height:1.65}
+header{background:var(--navy);color:#fff;padding:28px 20px}header .wrap{max-width:960px;margin:0 auto}
+header h1{margin:0 0 6px;font-size:1.5rem}header p{margin:0;opacity:.85;font-size:.95rem}
+nav{background:var(--soft);border-bottom:1px solid var(--line)}nav .wrap{max-width:960px;margin:0 auto;padding:10px 20px;display:flex;gap:18px;flex-wrap:wrap}
+nav a{color:var(--navy);text-decoration:none;font-weight:600}nav a:hover{text-decoration:underline}
+main{max-width:960px;margin:0 auto;padding:28px 20px 60px}
+h1,h2,h3{color:var(--navy);line-height:1.3}h2{margin-top:2.2em;padding-bottom:.3em;border-bottom:2px solid var(--line)}h3{margin-top:1.6em}
+table{border-collapse:collapse;width:100%;margin:12px 0 20px;font-size:.93rem;display:block;overflow-x:auto}
+th,td{border:1px solid var(--line);padding:7px 10px;text-align:left;white-space:nowrap}th{background:#dce6f1;font-weight:600}
+tr:nth-child(even) td{background:#fafbfc}
+.card{border:1px solid var(--line);border-radius:10px;padding:20px 22px;margin:16px 0;background:#fff}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+.card h3{margin-top:0}.card a.btn{display:inline-block;margin-top:8px;background:var(--accent);color:#fff;padding:8px 14px;border-radius:6px;text-decoration:none;font-weight:600}
+.kpi{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin:18px 0}
+.kpi div{background:var(--soft);border-radius:8px;padding:14px 16px}.kpi b{display:block;font-size:1.6rem;color:var(--navy)}.kpi span{color:var(--muted);font-size:.9rem}
+figure{margin:10px 0 26px}figure img{max-width:100%;height:auto;border:1px solid var(--line);border-radius:6px}
+.note{color:var(--muted);font-size:.9rem}footer{text-align:center;color:var(--muted);font-size:.85rem;padding:30px 0;border-top:1px solid var(--line)}
+code{background:var(--soft);padding:1px 5px;border-radius:4px;font-size:.9em}
+@media (max-width:600px){header h1{font-size:1.2rem}main{padding:18px 14px}}
+</style></head><body>
+<header><div class="wrap"><h1>복지서비스 매칭 앱 — 데이터 분석 보고서</h1><p>중앙부처 복지서비스 461개 × 통계청 사회조사·가계동향조사 | 2026 빅웨이브 공모전</p></div></header>
+<nav><div class="wrap"><a href="index.html">홈</a><a href="variables.html">변수화 통계 보고서</a><a href="eda.html">사회조사 EDA</a><a href="mapping.html" style=text-decoration:underline>데이터·공통변수</a><a href="diffusion.html">확산모델 분석</a></div></nav><main>
+<h1>데이터 구성과 공통 변수 체계</h1>
+<p>세 데이터(가계동향조사·사회조사·중앙부처 복지서비스)를 <b>19개 공통 개념 축</b>으로 정렬해
+"사람의 속성"과 "정책의 조건"이 같은 척도 위에서 자동 매칭되도록 설계했다.</p>
+
+<h2>1. 사용 데이터 요약</h2>
+<table><tr><th>항목</th><th>가계동향조사 2025</th><th>사회조사 2025</th><th>중앙부처 복지서비스</th></tr>
+<tr><td>출처</td><td>통계청 MDIS</td><td>통계청 MDIS</td><td>복지로(bokjiro.go.kr)</td></tr>
+<tr><td>단위</td><td>가구</td><td>개인(만 13세+)</td><td>서비스(정책)</td></tr>
+<tr><td>규모</td><td>13,524가구</td><td>33,944명 / 18,467가구</td><td>461개</td></tr>
+<tr><td>전체 변수</td><td>243개 (유효 약 40)</td><td>337개 (유효 33)</td><td>27개 → 변수화 52개</td></tr>
+<tr><td>핵심 변수</td><td>가구원 관계·연령, 소득분위·구간, 점유형태</td><td>연령·성별·혼인, 장애인복지카드, 시도, 가구소득, 경제활동</td><td>지원대상 상세·선정기준(텍스트), 태그, 지원형태</td></tr>
+<tr><td>주요 정보</td><td>가구 구성(한부모·조손·다자녀)·자녀 연령·정밀 소득</td><td>장애·지역(시도)·국적·취업 — 자격 판정의 본체</td><td>정책별 수급 조건 → 40개 변수로 인코딩(커버 85%)</td></tr></table>
+
+<h2>2. 핵심 공통 변수 5개 — 양쪽 생성 기준</h2>
+<table><tr><th>변수</th><th>사회조사(사람) 생성 기준</th><th>정책 데이터 생성 기준</th></tr>
+<tr><td><b>연령</b></td><td>만연령 원변수 (13~105세)</td><td>텍스트에서 "만 X세 이상/이하", "X~Y세" 파싱 → 최소·최대연령. 없으면 생애주기 태그 변환, 역전 17건 무효화</td></tr>
+<tr><td><b>장애인</b></td><td>장애인복지카드 소유(=1) + 활동제약 6문항 보조</td><td>서비스명 '장애' 포함 ∪ 지원대상 태그 단독 → 2(전용), 그 외 1</td></tr>
+<tr><td><b>중위소득%</b></td><td>가구소득구간 중간값 ÷ 가구원수별 기준중위소득 ×100</td><td>텍스트 "중위소득 X%" 추출, 복수 값은 최댓값(관대 필터)</td></tr>
+<tr><td><b>취업여부</b></td><td>지난 1주간 경제활동(=1) + 종사상지위 세분</td><td>재직자·근로자 요구→2, 구직·실업 요구→0, 병기→1 (소득 산정 표현 오탐 제거)</td></tr>
+<tr><td><b>거주지역</b></td><td>행정구역 시도코드(17개) + 동부/읍면부</td><td>시도명·지역유형 탐지 → 0 전국(430) / 1 차등·특례(25) / 2 전용(6) + 상세</td></tr></table>
+
+<h2>3. 공통 변수 19개 축</h2>
+<p><b>완전 대응 13개</b>: 연령 하한·상한, 생애주기, 성별, 장애인, 소득수준(중위소득%), 거주지역, 취업, 학생, 자영업, 1인가구, 농어업, 자녀 유무</p>
+<p><b>근사 대응 6개</b>: 수급자·차상위(60세+ 생활비마련 근사), 한부모, 조손, 다문화(외국국적), 자녀 연령대(청소년만), 군인·질병(직업군인·활동제약 근사)</p>
+<p><b>대응 불가 6개 → 앱 직접 입력</b>: 보훈대상자, 탈북민, 보호종료, 위기상황, 재산, 기관판정</p>
+
+<h2>4. 대표 변수 EDA — 사람 분포 vs 정책 조건</h2>
+<p>인구의 21.5%인 청년에게 461개 중 318개 정책이 열려 있고(전용 17), 인구의 4.9%인 등록장애인에게 75개(16%)가 전용 배정되어 있다.</p>
+<figure><img src="charts/key_age.png" alt="연령 변수 EDA" loading="lazy"></figure>
+<figure><img src="charts/key_disability.png" alt="장애인 변수 EDA" loading="lazy"></figure>
+</main>
+<footer>데이터 출처: 복지로(중앙부처 복지서비스), 통계청 사회조사 2025·가계동향조사 2025 마이크로데이터 | 원자료는 비공개, 집계 결과만 게시</footer></body></html>
