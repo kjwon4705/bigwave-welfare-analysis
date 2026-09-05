@@ -22,7 +22,7 @@ code{background:var(--soft);padding:1px 5px;border-radius:4px;font-size:.9em}
 @media (max-width:600px){header h1{font-size:1.2rem}main{padding:18px 14px}}
 </style></head><body>
 <header><div class="wrap"><h1>복지서비스 매칭 앱 — 데이터 분석 보고서</h1><p>중앙부처 복지서비스 461개 × 통계청 사회조사·가계동향조사 | 2026 빅웨이브 공모전</p></div></header>
-<nav><div class="wrap"><a href="index.html">홈</a><a href="variables.html">변수화 통계 보고서</a><a href="eda.html">사회조사 EDA</a><a href="mapping.html" style=text-decoration:underline>데이터·공통변수</a><a href="diffusion.html">확산모델 분석</a></div></nav><main>
+<nav><div class="wrap"><a href="index.html">홈</a><a href="variables.html">변수화 통계 보고서</a><a href="eda.html">사회조사 EDA</a><a href="mapping.html" style=text-decoration:underline>데이터·공통변수</a><a href="codebook.html">변수 설명북</a><a href="diffusion.html">확산모델 분석</a></div></nav><main>
 <h1>데이터 구성과 공통 변수 체계</h1>
 <p>세 데이터(가계동향조사·사회조사·중앙부처 복지서비스)를 <b>19개 공통 개념 축</b>으로 정렬해
 "사람의 속성"과 "정책의 조건"이 같은 척도 위에서 자동 매칭되도록 설계했다.</p>
@@ -45,6 +45,7 @@ code{background:var(--soft);padding:1px 5px;border-radius:4px;font-size:.9em}
 <tr><td><b>거주지역</b></td><td>행정구역 시도코드(17개) + 동부/읍면부</td><td>시도명·지역유형 탐지 → 0 전국(430) / 1 차등·특례(25) / 2 전용(6) + 상세</td></tr></table>
 
 <h2>3. 공통 변수 19개 축</h2>
+<p class=note>각 변수의 정의·코딩·사회조사/정책 측 생성 규칙·매칭식은 <a href="codebook.html"><b>변수 설명북(Codebook)</b></a>에 변수별로 상세 기록되어 있다.</p>
 <p><b>완전 대응 13개</b>: 연령 하한·상한, 생애주기, 성별, 장애인, 소득수준(중위소득%), 거주지역, 취업, 학생, 자영업, 1인가구, 농어업, 자녀 유무</p>
 <p><b>근사 대응 6개</b>: 수급자·차상위(60세+ 생활비마련 근사), 한부모, 조손, 다문화(외국국적), 자녀 연령대(청소년만), 군인·질병(직업군인·활동제약 근사)</p>
 <p><b>대응 불가 6개 → 앱 직접 입력</b>: 보훈대상자, 탈북민, 보호종료, 위기상황, 재산, 기관판정</p>
