@@ -1,5 +1,5 @@
 <!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>데이터·공통변수</title><style>
+<title>공통변수</title><style>
 :root{--ink:#1a1a1a;--muted:#5b5b5b;--navy:#1f3b5c;--line:#e3e6ea;--bg:#ffffff;--soft:#f5f7fa;--accent:#2a78d6}
 *{box-sizing:border-box}body{margin:0;font-family:'Malgun Gothic','Apple SD Gothic Neo','Noto Sans KR',sans-serif;color:var(--ink);background:var(--bg);line-height:1.65}
 header{background:var(--navy);color:#fff;padding:28px 20px}header .wrap{max-width:960px;margin:0 auto}
@@ -22,7 +22,7 @@ code{background:var(--soft);padding:1px 5px;border-radius:4px;font-size:.9em}
 @media (max-width:600px){header h1{font-size:1.2rem}main{padding:18px 14px}}
 </style></head><body>
 <header><div class="wrap"><h1>복지서비스 매칭 앱 — 데이터 분석 보고서</h1><p>중앙부처 복지서비스 461개 × 통계청 사회조사·가계동향조사 | 2026 빅웨이브 공모전</p></div></header>
-<nav><div class="wrap"><a href="index.html">홈</a><a href="variables.html">변수화 통계 보고서</a><a href="eda.html">사회조사 EDA</a><a href="mapping.html" style=text-decoration:underline>데이터·공통변수</a><a href="codebook.html">변수 설명북</a><a href="diffusion.html">확산모델 분석</a></div></nav><main>
+<nav><div class="wrap"><a href="index.html">홈</a><a href="variables.html">중앙부처 복지서비스</a><a href="eda.html">사회조사 EDA</a><a href="mapping.html" style=text-decoration:underline>공통변수</a><a href="codebook.html">공통 변수 상세 설명</a><a href="diffusion.html">확산모델 분석</a></div></nav><main>
 <h1>데이터 구성과 공통 변수 체계</h1>
 <p>세 데이터(가계동향조사·사회조사·중앙부처 복지서비스)를 <b>19개 공통 개념 축</b>으로 정렬해
 "사람의 속성"과 "정책의 조건"이 같은 척도 위에서 자동 매칭되도록 설계했다.</p>
@@ -45,7 +45,7 @@ code{background:var(--soft);padding:1px 5px;border-radius:4px;font-size:.9em}
 <tr><td><b>거주지역</b></td><td>행정구역 시도코드(17개) + 동부/읍면부</td><td>시도명·지역유형 탐지 → 0 전국(430) / 1 차등·특례(25) / 2 전용(6) + 상세</td></tr></table>
 
 <h2>3. 공통 변수 19개 축</h2>
-<p class=note>각 변수의 정의·코딩·사회조사/정책 측 생성 규칙·매칭식은 <a href="codebook.html"><b>변수 설명북(Codebook)</b></a>에 변수별로 상세 기록되어 있다.</p>
+<p class=note>각 변수의 정의·코딩·사회조사/정책 측 생성 규칙·매칭식은 <a href="codebook.html"><b>공통 변수 상세 설명</b></a>에 변수별로 상세 기록되어 있다.</p>
 <p><b>완전 대응 13개</b>: 연령 하한·상한, 생애주기, 성별, 장애인, 소득수준(중위소득%), 거주지역, 취업, 학생, 자영업, 1인가구, 농어업, 자녀 유무</p>
 <p><b>근사 대응 6개</b>: 수급자·차상위(60세+ 생활비마련 근사), 한부모, 조손, 다문화(외국국적), 자녀 연령대(청소년만), 군인·질병(직업군인·활동제약 근사)</p>
 <p><b>대응 불가 6개 → 앱 직접 입력</b>: 보훈대상자, 탈북민, 보호종료, 위기상황, 재산, 기관판정</p>
@@ -54,5 +54,33 @@ code{background:var(--soft);padding:1px 5px;border-radius:4px;font-size:.9em}
 <p>인구의 21.5%인 청년에게 461개 중 318개 정책이 열려 있고(전용 17), 인구의 4.9%인 등록장애인에게 75개(16%)가 전용 배정되어 있다.</p>
 <figure><img src="charts/key_age.png" alt="연령 변수 EDA" loading="lazy"></figure>
 <figure><img src="charts/key_disability.png" alt="장애인 변수 EDA" loading="lazy"></figure>
+
+<h2>5. 받을 수 있는 정책 수 — 규칙 엔진 매칭 결과 분석</h2>
+<p>사회조사 응답자 33,944명 각각에 대해 규칙 엔진이 461개 정책의 자격을 판정한 뒤, 자격이 확정(1)된 정책 수를 세었다
+(판정 불가·NaN은 제외한 보수적 집계). 전체 가중 평균은 <b>35.2개</b>(중앙값 34개)로,
+한 사람이 조건상 받을 수 있는 중앙부처 정책이 평균 35개 안팎임을 뜻한다.</p>
+
+<h3>5-1. 생애주기별 분포 (violin plot)</h3>
+<p>노년이 평균 <b>40.8개</b>로 가장 많고 청년 35.7개, 중장년 33.6개, 청소년 26.7개 순이다.
+노년층은 연령 요건(60·65세 이상) 정책과 돌봄·의료 정책이 중첩되어 분포가 넓고, 청년은 취업·주거·금융 정책이 집중되어 중장년보다
+평균이 높다. 청소년은 본인 명의로 신청 가능한 정책이 적어 가장 낮다. 바이올린의 폭은 해당 정책 수를 가진 사람의 상대적 밀도이며,
+검은 점은 표본가중치를 적용한 평균이다.</p>
+<figure><img src="charts/key_violin_lifecycle.png" alt="생애주기별 정책 수 violin" loading="lazy"></figure>
+
+<h3>5-2. 장애인이 받을 수 있는 정책 수</h3>
+<p>장애인복지카드 소유자는 평균 <b>63.3개</b>, 미소유자는 33.8개로 <b>29.5개 차이</b>가 난다.
+차이의 대부분은 장애인 전용 정책 75개에서 발생하며(전용 정책 중 소유자 평균 자격 26.8개),
+나머지 일반 정책에서는 두 집단의 자격 수가 비슷하다 — 장애가 다른 정책의 배제 사유가 아니기 때문이다.
+즉 등록장애인은 "일반 정책 + 전용 정책"의 이중 자격 구조를 갖는다.</p>
+<figure><img src="charts/key_bar_disability_count.png" alt="장애인 여부별 정책 수" loading="lazy"></figure>
+
+<h3>5-3. 수급자가 받을 수 있는 정책 수 (60세 이상, 근사)</h3>
+<p>사회조사에는 수급 자격 문항이 없어 60세 이상에게만 조사된 '생활비 마련방법 = 정부·사회단체 지원'을 수급자 근사치로 썼다
+(n=1,448). 수급 근사자는 평균 <b>54.8개</b>, 같은 연령대 비수급자는 37.9개로 <b>16.9개 차이</b>다.
+수급자 자격을 요구하는 정책 99개 중 근사자의 확정 자격은 평균 13.1개에 그치는데,
+이는 소득인정액·재산 등 사회조사로 판정할 수 없는 조건이 평균 49.4개 정책에서 NaN(불명)으로 남기 때문이다.
+따라서 이 수치는 하한선이며, 앱에서 수급 여부를 직접 입력받으면 확정 정책 수는 크게 늘어난다.</p>
+<figure><img src="charts/key_bar_recipient_count.png" alt="수급자 여부별 정책 수" loading="lazy"></figure>
+<p class=note>집계 기준: 자격=1인 정책만 계산(NaN 제외), 가구원가중값 적용 평균. 표 원본은 분석/Result/키변수_차트/표5~7.</p>
 </main>
 <footer>데이터 출처: 복지로(중앙부처 복지서비스), 통계청 사회조사 2025·가계동향조사 2025 마이크로데이터 | 원자료는 비공개, 집계 결과만 게시</footer></body></html>
