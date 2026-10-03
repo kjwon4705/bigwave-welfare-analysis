@@ -1,0 +1,276 @@
+﻿번호,서비스ID,서비스명,원문근거대조,코드정의대조,불완전정보_자격유출차단,기존제외정책재포함,사람별전조건판정검증
+1,WLF00001175,자립준비청년 자립수당 지급,True,True,True,False,미완료; 검증게이트 시험과 별개
+2,WLF00003271,내집마련 디딤돌 대출,True,True,True,False,미완료; 검증게이트 시험과 별개
+3,WLF00001114,이주배경 청소년 지원,True,True,True,False,미완료; 검증게이트 시험과 별개
+4,WLF00003282,다문화가족 자녀 언어발달지원서비스,True,True,True,False,미완료; 검증게이트 시험과 별개
+5,WLF00003262,장애아가족양육지원,True,True,True,False,미완료; 검증게이트 시험과 별개
+6,WLF00005567,정신건강 심리상담 바우처사업,True,True,True,False,미완료; 검증게이트 시험과 별개
+7,WLF00006196,자활성공지원금 지급·관리,True,True,True,False,미완료; 검증게이트 시험과 별개
+8,WLF00005411,일상돌봄 서비스 사업,True,True,True,False,미완료; 검증게이트 시험과 별개
+9,WLF00004661,청년월세 지원사업,True,True,True,False,미완료; 검증게이트 시험과 별개
+10,WLF00004657,부모급여 지원,True,True,True,False,미완료; 검증게이트 시험과 별개
+11,WLF00004656,첫만남이용권,True,True,True,False,미완료; 검증게이트 시험과 별개
+12,WLF00001188,산모·신생아 건강관리 지원사업,True,True,True,False,미완료; 검증게이트 시험과 별개
+13,WLF00001178,청소년 발달장애인 방과후활동서비스,True,True,True,False,미완료; 검증게이트 시험과 별개
+14,WLF00001171,아동수당 지급,True,True,True,False,미완료; 검증게이트 시험과 별개
+15,WLF00001140,방과후보육료지원,True,True,True,False,미완료; 검증게이트 시험과 별개
+16,WLF00001135,해산급여,True,True,True,False,미완료; 검증게이트 시험과 별개
+17,WLF00001109,청소년한부모 아동양육 및 자립지원,True,True,True,False,미완료; 검증게이트 시험과 별개
+18,WLF00001104,한부모가족자녀 교육비 지원,True,True,True,False,미완료; 검증게이트 시험과 별개
+19,WLF00001103,초중고 교육비 지원사업(고교학비 지원),True,True,True,False,미완료; 검증게이트 시험과 별개
+20,WLF00001089,교육급여(맞춤형 급여),True,True,True,False,미완료; 검증게이트 시험과 별개
+21,WLF00001087,가사·간병 방문 지원사업,True,True,True,False,미완료; 검증게이트 시험과 별개
+22,WLF00001068,한부모가족 아동양육비 지원,True,True,True,False,미완료; 검증게이트 시험과 별개
+23,WLF00001067,장애아보육료지원,True,True,True,False,미완료; 검증게이트 시험과 별개
+24,WLF00000969,유아학비 지원(3~5세 누리과정 지원),True,True,True,False,미완료; 검증게이트 시험과 별개
+25,WLF00000867,방과후학교 자유수강권,True,True,True,False,미완료; 검증게이트 시험과 별개
+26,WLF00000092,저소득층 기저귀·조제분유 지원,True,True,True,False,미완료; 검증게이트 시험과 별개
+27,WLF00000064,발달장애인 부모상담지원사업,True,True,True,False,미완료; 검증게이트 시험과 별개
+28,WLF00000060,청년내일저축계좌,True,True,True,False,미완료; 검증게이트 시험과 별개
+29,WLF00000056,의료급여(요양비),True,True,True,False,미완료; 검증게이트 시험과 별개
+30,WLF00000026,장애인자립자금대여,True,True,True,False,미완료; 검증게이트 시험과 별개
+31,WLF00000024,아이돌봄서비스,True,True,True,False,미완료; 검증게이트 시험과 별개
+32,WLF00003279,언어발달지원사업,True,True,True,False,미완료; 검증게이트 시험과 별개
+33,WLF00003278,여성장애인 출산비용지원,True,True,True,False,미완료; 검증게이트 시험과 별개
+34,WLF00003265,장애수당,True,True,True,False,미완료; 검증게이트 시험과 별개
+35,WLF00003258,아동발달지원계좌(디딤씨앗통장)지원,True,True,True,False,미완료; 검증게이트 시험과 별개
+36,WLF00003253,가정양육수당 지원사업,True,True,True,False,미완료; 검증게이트 시험과 별개
+37,WLF00003250,영유아보육료 지원,True,True,True,False,미완료; 검증게이트 시험과 별개
+38,WLF00003227,초.중.고 학생 교육정보화 지원,True,True,True,False,미완료; 검증게이트 시험과 별개
+39,WLF00003198,장애아동수당,True,True,True,False,미완료; 검증게이트 시험과 별개
+40,WLF00003195,발달재활서비스,True,True,True,False,미완료; 검증게이트 시험과 별개
+41,WLF00003192,다문화가족 방문교육 서비스,True,True,True,False,미완료; 검증게이트 시험과 별개
+42,WLF00003171,의료급여본인부담면제,True,True,True,False,미완료; 검증게이트 시험과 별개
+43,WLF00004638,가스요금할인,True,True,True,False,미완료; 검증게이트 시험과 별개
+44,WLF00006248,직장인 든든한 점심밥,True,True,True,False,미완료; 검증게이트 시험과 별개
+45,WLF00006315,가족전용상담전화,True,True,True,False,미완료; 검증게이트 시험과 별개
+46,WLF00006266,청년미래적금,True,True,True,False,미완료; 검증게이트 시험과 별개
+47,WLF00006324,무료법률구조,True,True,True,False,미완료; 검증게이트 시험과 별개
+48,WLF00006298,자동차사고 피해자 지원사업,True,True,True,False,미완료; 검증게이트 시험과 별개
+49,WLF00006335,유아 단계적 무상교육·보육 실현,True,True,True,False,미완료; 검증게이트 시험과 별개
+50,WLF00003234,일자리창출사업,True,True,True,False,미완료; 검증게이트 시험과 별개
+51,WLF00006333,건강보험 산정특례,True,True,True,False,미완료; 검증게이트 시험과 별개
+52,WLF00006332,아동 입원진료비 지원,True,True,True,False,미완료; 검증게이트 시험과 별개
+53,WLF00006331,자살예방센터 운영,True,True,True,False,미완료; 검증게이트 시험과 별개
+54,WLF00006309,법률구조,True,True,True,False,미완료; 검증게이트 시험과 별개
+55,WLF00006237,안부살핌 우편서비스 사업,True,True,True,False,미완료; 검증게이트 시험과 별개
+56,WLF00006319,대지급금,True,True,True,False,미완료; 검증게이트 시험과 별개
+57,WLF00003176,농식품바우처,True,True,True,False,미완료; 검증게이트 시험과 별개
+58,WLF00006290,경남동행론(직접대출),True,True,True,False,미완료; 검증게이트 시험과 별개
+59,WLF00006317,발달장애인 자기주도 재직자 훈련,True,True,True,False,미완료; 검증게이트 시험과 별개
+60,WLF00006316,전문기술인재장학금,True,True,True,False,미완료; 검증게이트 시험과 별개
+61,WLF00006311,법문화교육(교육센터),True,True,True,False,미완료; 검증게이트 시험과 별개
+62,WLF00003269,기존주택 전세임대주택 지원사업,True,True,True,False,미완료; 검증게이트 시험과 별개
+63,WLF00006314,사회통합프로그램,True,True,True,False,미완료; 검증게이트 시험과 별개
+64,WLF00006312,성매매 방지 및 피해자 지원,True,True,True,False,미완료; 검증게이트 시험과 별개
+65,WLF00006310,개인회생 파산 종합지원(지원센터),True,True,True,False,미완료; 검증게이트 시험과 별개
+66,WLF00006308,무료법률상담,True,True,True,False,미완료; 검증게이트 시험과 별개
+67,WLF00006307,자립지원 전담기관 운영,True,True,True,False,미완료; 검증게이트 시험과 별개
+68,WLF00006306,중앙취업지원센터 운영 지원,True,True,True,False,미완료; 검증게이트 시험과 별개
+69,WLF00006305,고졸자 후속관리 지원모델 개발사업,True,True,True,False,미완료; 검증게이트 시험과 별개
+70,WLF00006304,보훈원 양육지원,True,True,True,False,미완료; 검증게이트 시험과 별개
+71,WLF00006212,환경오염피해 구제급여,True,True,True,False,미완료; 검증게이트 시험과 별개
+72,WLF00006302,성착취 피해 아동·청소년 퇴소자립지원수당,True,True,True,False,미완료; 검증게이트 시험과 별개
+73,WLF00006300,조산아 및 저체중출생아 본인부담금 경감,True,True,True,False,미완료; 검증게이트 시험과 별개
+74,WLF00006297,장애인 창업보육실 운영,True,True,True,False,미완료; 검증게이트 시험과 별개
+75,WLF00003244,국민임대주택공급,True,True,True,False,미완료; 검증게이트 시험과 별개
+76,WLF00004649,행복주택 공급,True,True,True,False,미완료; 검증게이트 시험과 별개
+77,WLF00004663,통합공공임대,True,True,True,False,미완료; 검증게이트 시험과 별개
+78,WLF00000057,공공분양,True,True,True,False,미완료; 검증게이트 시험과 별개
+79,WLF00001079,주거안정 월세대출 보증,True,True,True,False,미완료; 검증게이트 시험과 별개
+80,WLF00006293,4·19혁명공로수당,True,True,True,False,미완료; 검증게이트 시험과 별개
+81,WLF00006294,장애인 등록 신청,True,True,True,False,미완료; 검증게이트 시험과 별개
+82,WLF00006296,국가보훈대상자 친환경차량(전기･수소차) 지원,True,True,True,False,미완료; 검증게이트 시험과 별개
+83,WLF00006292,난임치료휴가급여 지원,True,True,True,False,미완료; 검증게이트 시험과 별개
+84,WLF00006282,보훈가족 심리재활서비스 지원,True,True,True,False,미완료; 검증게이트 시험과 별개
+85,WLF00006295,마을변호사,True,True,True,False,미완료; 검증게이트 시험과 별개
+86,WLF00006288,서민금융진흥원 금융상품 알선,True,True,True,False,미완료; 검증게이트 시험과 별개
+87,WLF00006241,정신질환자 치료비 지원 사업,True,True,True,False,미완료; 검증게이트 시험과 별개
+88,WLF00006264,생활안정자금(융자)(이차보전),True,True,True,False,미완료; 검증게이트 시험과 별개
+89,WLF00006289,위기임신 및 보호출산 지원,True,True,True,False,미완료; 검증게이트 시험과 별개
+90,WLF00006286,고졸 후학습자 장학사업(희망사다리Ⅱ유형),True,True,True,False,미완료; 검증게이트 시험과 별개
+91,WLF00006285,영구 불임 예상 난자·정자 냉동 지원사업,True,True,True,False,미완료; 검증게이트 시험과 별개
+92,WLF00003242,국가예방접종 사업,True,True,True,False,미완료; 검증게이트 시험과 별개
+93,WLF00006227,"유선전화(인터넷요금전화포함), 초고속(인터넷통신)요금감면",True,True,True,False,미완료; 검증게이트 시험과 별개
+94,WLF00004997,한국형 상병수당 시범사업,True,True,True,False,미완료; 검증게이트 시험과 별개
+95,WLF00005032,전문아동보호비 지원,True,True,True,False,미완료; 검증게이트 시험과 별개
+96,WLF00005033,아동용품구입비 지원,True,True,True,False,미완료; 검증게이트 시험과 별개
+97,WLF00001120,교육복지우선지원사업,True,True,True,False,미완료; 검증게이트 시험과 별개
+98,WLF00003188,다문화·탈북학생 멘토링,True,True,True,False,미완료; 검증게이트 시험과 별개
+99,WLF00001142,북한배경학생 교육 지원(멘토링 지원 등),True,True,True,False,미완료; 검증게이트 시험과 별개
+100,WLF00005445,자립준비청년(보호종료아동) 자립정착금 지원,True,True,True,False,미완료; 검증게이트 시험과 별개
+101,WLF00006283,체불 근로자 생계비 융자,True,True,True,False,미완료; 검증게이트 시험과 별개
+102,WLF00000098,국가유공자재가복지지원,True,True,True,False,미완료; 검증게이트 시험과 별개
+103,WLF00000815,(북한이탈주민)주택알선 지원,True,True,True,False,미완료; 검증게이트 시험과 별개
+104,WLF00001098,온가족보듬사업,True,True,True,False,미완료; 검증게이트 시험과 별개
+105,WLF00004650,청소년성문화센터설치운영,True,True,True,False,미완료; 검증게이트 시험과 별개
+106,WLF00001122,국가유공자 등 LPG차량 세금인상분 지원,True,True,True,False,미완료; 검증게이트 시험과 별개
+107,WLF00001187,최저임금적용제외 근로장애인 전환지원,True,True,True,False,미완료; 검증게이트 시험과 별개
+108,WLF00000063,(북한이탈주민)교육비 지원,True,True,True,False,미완료; 검증게이트 시험과 별개
+109,WLF00000086,(북한이탈주민) 탈북청소년 교육지원,True,True,True,False,미완료; 검증게이트 시험과 별개
+110,WLF00005026,여성어업인 특화건강검진사업,True,True,True,False,미완료; 검증게이트 시험과 별개
+111,WLF00006277,서민금융진흥원 신용･부채관리 컨설팅,True,True,True,False,미완료; 검증게이트 시험과 별개
+112,WLF00006276,서민금융진흥원 자영업 컨설팅,True,True,True,False,미완료; 검증게이트 시험과 별개
+113,WLF00006275,햇살론카드,True,True,True,False,미완료; 검증게이트 시험과 별개
+114,WLF00006274,햇살론일반,True,True,True,False,미완료; 검증게이트 시험과 별개
+115,WLF00006273,햇살론특례,True,True,True,False,미완료; 검증게이트 시험과 별개
+116,WLF00006272,소상공인 특례 햇살론카드,True,True,True,False,미완료; 검증게이트 시험과 별개
+117,WLF00006271,햇살론119,True,True,True,False,미완료; 검증게이트 시험과 별개
+118,WLF00006267,서민금융진흥원 금융교육,True,True,True,False,미완료; 검증게이트 시험과 별개
+119,WLF00006270,중소기업 취업연계 장학사업 (희망사다리 I유형),True,True,True,False,미완료; 검증게이트 시험과 별개
+120,WLF00006269,미소금융,True,True,True,False,미완료; 검증게이트 시험과 별개
+121,WLF00006268,불법사금융예방대출,True,True,True,False,미완료; 검증게이트 시험과 별개
+122,WLF00006265,연탄쿠폰,True,True,True,False,미완료; 검증게이트 시험과 별개
+123,WLF00000076,스포츠강좌이용권,True,True,True,False,미완료; 검증게이트 시험과 별개
+124,WLF00001146,시설 퇴소청소년 자립지원수당 지급,True,True,True,False,미완료; 검증게이트 시험과 별개
+125,WLF00001139,성매매 피해아동청소년 통합지원,True,True,True,False,미완료; 검증게이트 시험과 별개
+126,WLF00003186,양육비 이행 원스톱 종합서비스,True,True,True,False,미완료; 검증게이트 시험과 별개
+127,WLF00003254,청소년방과후아카데미운영지원,True,True,True,False,미완료; 검증게이트 시험과 별개
+128,WLF00003268,가정위탁아동 상해보험료 지원,True,True,True,False,미완료; 검증게이트 시험과 별개
+129,WLF00003230,영주귀국 사할린한인 정착비 및 시설운영 지원,True,True,True,False,미완료; 검증게이트 시험과 별개
+130,WLF00003266,직업훈련생계비대부,True,True,True,False,미완료; 검증게이트 시험과 별개
+131,WLF00004637,TV수신료 면제,True,True,True,False,미완료; 검증게이트 시험과 별개
+132,WLF00006229,"국민내일배움카드제 직업훈련지원(훈련비, 훈련장려금)",True,True,True,False,미완료; 검증게이트 시험과 별개
+133,WLF00003207,영농도우미 지원,True,True,True,False,미완료; 검증게이트 시험과 별개
+134,WLF00001182,학교우유급식,True,True,True,False,미완료; 검증게이트 시험과 별개
+135,WLF00003243,보훈요양원 이용지원,True,True,True,False,미완료; 검증게이트 시험과 별개
+136,WLF00001170,장기요양급여 이용지원,True,True,True,False,미완료; 검증게이트 시험과 별개
+137,WLF00000025,장애인일자리지원,True,True,True,False,미완료; 검증게이트 시험과 별개
+138,WLF00001133,장애인 건강검진기관 지원,True,True,True,False,미완료; 검증게이트 시험과 별개
+139,WLF00004660,고령자 고용지원금,True,True,True,False,미완료; 검증게이트 시험과 별개
+140,WLF00000032,실종아동 등 보호 및 지원,True,True,True,False,미완료; 검증게이트 시험과 별개
+141,WLF00001180,학대피해아동 쉼터 설치 및 운영,True,True,True,False,미완료; 검증게이트 시험과 별개
+142,WLF00004639,전기요금 복지할인,True,True,True,False,미완료; 검증게이트 시험과 별개
+143,WLF00000099,저소득장애인 진단서 발급비 및 검사비 지원사업,True,True,True,False,미완료; 검증게이트 시험과 별개
+144,WLF00006217,출소(예정)자 취업지원사업(허그일자리지원),True,True,True,False,미완료; 검증게이트 시험과 별개
+145,WLF00000027,장애인 운전교육 사업,True,True,True,False,미완료; 검증게이트 시험과 별개
+146,WLF00004658,과학문화 바우처 지원,True,True,True,False,미완료; 검증게이트 시험과 별개
+147,WLF00000031,노후준비서비스,True,True,True,False,미완료; 검증게이트 시험과 별개
+148,WLF00003215,한센인 피해자지원,True,True,True,False,미완료; 검증게이트 시험과 별개
+149,WLF00000089,다함께 돌봄 사업,True,True,True,False,미완료; 검증게이트 시험과 별개
+150,WLF00005448,다문화가족 자녀 교육활동비 지원,True,True,True,False,미완료; 검증게이트 시험과 별개
+151,WLF00001113,(특수교육대상자) 치료지원서비스,True,True,True,False,미완료; 검증게이트 시험과 별개
+152,WLF00003252,노인보호전문기관,True,True,True,False,미완료; 검증게이트 시험과 별개
+153,WLF00003232,농업인안전보험,True,True,True,False,미완료; 검증게이트 시험과 별개
+154,WLF00006226,"저소득층, 사회적 배려대상 및 다자녀가구 지역난방 열요금 지원",True,True,True,False,미완료; 검증게이트 시험과 별개
+155,WLF00006225,지역난방기본요금감면,True,True,True,False,미완료; 검증게이트 시험과 별개
+156,WLF00000040,선천성대사이상 검사 및 환아관리,True,True,True,False,미완료; 검증게이트 시험과 별개
+157,WLF00001130,선천성 난청검사 및 보청기 지원,True,True,True,False,미완료; 검증게이트 시험과 별개
+158,WLF00000033,노인복지민간단체지원,True,True,True,False,미완료; 검증게이트 시험과 별개
+159,WLF00001093,독거노인·장애인 응급안전안심서비스,True,True,True,False,미완료; 검증게이트 시험과 별개
+160,WLF00000896,중독관리통합지원센터 지원,True,True,True,False,미완료; 검증게이트 시험과 별개
+161,WLF00001160,노숙자 등 알코올중독자 사례관리 사업,True,True,True,False,미완료; 검증게이트 시험과 별개
+162,WLF00001148,근로·자녀장려금,True,True,True,False,미완료; 검증게이트 시험과 별개
+163,WLF00003237,미숙아 및 선천성이상아 의료비 지원,True,True,True,False,미완료; 검증게이트 시험과 별개
+164,WLF00001088,고위험 임산부 의료비 지원,True,True,True,False,미완료; 검증게이트 시험과 별개
+165,WLF00006263,저소득 지역가입자 보험료 지원,True,True,True,False,미완료; 검증게이트 시험과 별개
+166,WLF00001173,국립특수학교 및 국립부설학교 특수학급 지원,True,True,True,False,미완료; 검증게이트 시험과 별개
+167,WLF00003184,온동네 초등돌봄교육,True,True,True,False,미완료; 검증게이트 시험과 별개
+168,WLF00005446,어업인 안전보험,True,True,True,False,미완료; 검증게이트 시험과 별개
+169,WLF00003196,도서민 여객선 운임지원,True,True,True,False,미완료; 검증게이트 시험과 별개
+170,WLF00001163,직장어린이집 설치 지원,True,True,True,False,미완료; 검증게이트 시험과 별개
+171,WLF00000028,공동육아나눔터 운영,True,True,True,False,미완료; 검증게이트 시험과 별개
+172,WLF00000948,학교 밖 청소년 지원,True,True,True,False,미완료; 검증게이트 시험과 별개
+173,WLF00001096,농촌출신대학생학자금융자,True,True,True,False,미완료; 검증게이트 시험과 별개
+174,WLF00000103,노인장기요양보험 복지용구 급여,True,True,True,False,미완료; 검증게이트 시험과 별개
+175,WLF00000058,소상공인지원(융자),True,True,True,False,미완료; 검증게이트 시험과 별개
+176,WLF00000864,희귀질환자 의료비 지원사업,True,True,True,False,미완료; 검증게이트 시험과 별개
+177,WLF00001118,고등학교 무상교육,True,True,True,False,미완료; 검증게이트 시험과 별개
+178,WLF00006258,건강보험 임의계속가입제도,True,True,True,False,미완료; 검증게이트 시험과 별개
+179,WLF00006254,예술체육 비전장학금,True,True,True,False,미완료; 검증게이트 시험과 별개
+180,WLF00006253,장애인고용개선장려금,True,True,True,False,미완료; 검증게이트 시험과 별개
+181,WLF00006252,근로지원인 지원,True,True,True,False,미완료; 검증게이트 시험과 별개
+182,WLF00006251,중증장애인확인서 발급,True,True,True,False,미완료; 검증게이트 시험과 별개
+183,WLF00005852,중장년 경력지원제,True,True,True,False,미완료; 검증게이트 시험과 별개
+184,WLF00006247,산재근로자 대체인력지원,True,True,True,False,미완료; 검증게이트 시험과 별개
+185,WLF00006246,우수고등학교 해외유학 장학금(드림장학금),True,True,True,False,미완료; 검증게이트 시험과 별개
+186,WLF00006245,어업활동지원,True,True,True,False,미완료; 검증게이트 시험과 별개
+187,WLF00001091,국가유공자의료급여증발급,True,True,True,False,미완료; 검증게이트 시험과 별개
+188,WLF00006242,현장실습 지원금,True,True,True,False,미완료; 검증게이트 시험과 별개
+189,WLF00001075,장애학생 정보격차 해소 지원,True,True,True,False,미완료; 검증게이트 시험과 별개
+190,WLF00004647,국민연금 출산크레딧,True,True,True,False,미완료; 검증게이트 시험과 별개
+191,WLF00001181,중앙노인돌봄지원기관 운영지원,True,True,True,False,미완료; 검증게이트 시험과 별개
+192,WLF00003206,(북한이탈주민) 의료비 지원,True,True,True,False,미완료; 검증게이트 시험과 별개
+193,WLF00003208,장기복무제대군인 취업지원,True,True,True,False,미완료; 검증게이트 시험과 별개
+194,WLF00003231,보조공학기기지원,True,True,True,False,미완료; 검증게이트 시험과 별개
+195,WLF00001090,장애인고용장려금,True,True,True,False,미완료; 검증게이트 시험과 별개
+196,WLF00003277,취업 후 상환 학자금대출,True,True,True,False,미완료; 검증게이트 시험과 별개
+197,WLF00001060,대학생 근로장학금 지원,True,True,True,False,미완료; 검증게이트 시험과 별개
+198,WLF00000052,인문100년장학금,True,True,True,False,미완료; 검증게이트 시험과 별개
+199,WLF00000747,중장기복무 제대군인 무료법률 구조지원,True,True,True,False,미완료; 검증게이트 시험과 별개
+200,WLF00000096,제대군인전직지원금,True,True,True,False,미완료; 검증게이트 시험과 별개
+201,WLF00003283,아동통합서비스지원(드림스타트사업),True,True,True,False,미완료; 검증게이트 시험과 별개
+202,WLF00003223,고난도 보호대상아동 맞춤형 사례관리서비스,True,True,True,False,미완료; 검증게이트 시험과 별개
+203,WLF00003177,복권기금 꿈사다리 장학사업,True,True,True,False,미완료; 검증게이트 시험과 별개
+204,WLF00003173,장애인스포츠강좌이용권 지원,True,True,True,False,미완료; 검증게이트 시험과 별개
+205,WLF00005856,양육비 선지급,True,True,True,False,미완료; 검증게이트 시험과 별개
+206,WLF00006239,영양플러스 사업,True,True,True,False,미완료; 검증게이트 시험과 별개
+207,WLF00001061,지역사회서비스 투자사업,True,True,True,False,미완료; 검증게이트 시험과 별개
+208,WLF00006207,웹정보접근성제고,True,True,True,False,미완료; 검증게이트 시험과 별개
+209,WLF00000068,장애인고용증진융자,True,True,True,False,미완료; 검증게이트 시험과 별개
+210,WLF00003185,청소년치료재활센터 운영,True,True,True,False,미완료; 검증게이트 시험과 별개
+211,WLF00000023,농어가목돈마련저축 저축장려금 지급,True,True,True,False,미완료; 검증게이트 시험과 별개
+212,WLF00000100,"자산형성지원사업(희망저축계좌Ⅰ, Ⅱ)",True,True,True,False,미완료; 검증게이트 시험과 별개
+213,WLF00001185,의료급여수급권자 영유아건강검진비 지원,True,True,True,False,미완료; 검증게이트 시험과 별개
+214,WLF00003247,재난적의료비 지원 사업,True,True,True,False,미완료; 검증게이트 시험과 별개
+215,WLF00001154,중증장애인근로자 출퇴근비용 지원 사업,True,True,True,False,미완료; 검증게이트 시험과 별개
+216,WLF00005023,청소년부모 아동양육비 지원사업,True,True,True,False,미완료; 검증게이트 시험과 별개
+217,WLF00006238,고령자 계속고용장려금,True,True,True,False,미완료; 검증게이트 시험과 별개
+218,WLF00006236,고교 취업연계 장려금,True,True,True,False,미완료; 검증게이트 시험과 별개
+219,WLF00006235,현장실습 기업현장 교육지원,True,True,True,False,미완료; 검증게이트 시험과 별개
+220,WLF00000038,독립유공자 제수비 지급,True,True,True,False,미완료; 검증게이트 시험과 별개
+221,WLF00001172,취업취약계층 고용지원 사업,True,True,True,False,미완료; 검증게이트 시험과 별개
+222,WLF00001137,독립유공자 손자녀 가계지원비,True,True,True,False,미완료; 검증게이트 시험과 별개
+223,WLF00001086,특별현금급여(가족요양비),True,True,True,False,미완료; 검증게이트 시험과 별개
+224,WLF00003183,장애인 표준사업장 설립지원,True,True,True,False,미완료; 검증게이트 시험과 별개
+225,WLF00006228,푸른등대기부장학금,True,True,True,False,미완료; 검증게이트 시험과 별개
+226,WLF00001147,그 밖의 연장형 보육료 등 지원,True,True,True,False,미완료; 검증게이트 시험과 별개
+227,WLF00003245,국민취업지원제도,True,True,True,False,미완료; 검증게이트 시험과 별개
+228,WLF00003210,장애인기업 성장기반구축,True,True,True,False,미완료; 검증게이트 시험과 별개
+229,WLF00000807,입양숙려기간 모자지원사업,True,True,True,False,미완료; 검증게이트 시험과 별개
+230,WLF00000090,대학의 장애학생지원센터 운영 지원,True,True,True,False,미완료; 검증게이트 시험과 별개
+231,WLF00003197,"국가장학금(Ⅰ, Ⅱ유형)",True,True,True,False,미완료; 검증게이트 시험과 별개
+232,WLF00001116,입양비용지원,True,True,True,False,미완료; 검증게이트 시험과 별개
+233,WLF00001021,장애아동입양 양육보조금,True,True,True,False,미완료; 검증게이트 시험과 별개
+234,WLF00003235,입양아동 양육수당 지원,True,True,True,False,미완료; 검증게이트 시험과 별개
+235,WLF00001121,장애입양아동 의료비지원,True,True,True,False,미완료; 검증게이트 시험과 별개
+236,WLF00003209,독립유공자 (손)자녀 생활지원금,True,True,True,False,미완료; 검증게이트 시험과 별개
+237,WLF00001157,지역자활센터 운영,True,True,True,False,미완료; 검증게이트 시험과 별개
+238,WLF00003212,납북피해자 지원,True,True,True,False,미완료; 검증게이트 시험과 별개
+239,WLF00003263,WEE 클래스 상담지원,True,True,True,False,미완료; 검증게이트 시험과 별개
+240,WLF00000075,여성기업종합지원센터운영,True,True,True,False,미완료; 검증게이트 시험과 별개
+241,WLF00000922,여성기업 판로지원,True,True,True,False,미완료; 검증게이트 시험과 별개
+242,WLF00000975,여성창업액셀러레이팅,True,True,True,False,미완료; 검증게이트 시험과 별개
+243,WLF00004648,(산재근로자)케어센터지원,True,True,True,False,미완료; 검증게이트 시험과 별개
+244,WLF00001085,산재근로자원직장복귀지원,True,True,True,False,미완료; 검증게이트 시험과 별개
+245,WLF00003175,결혼이민자 통번역 서비스,True,True,True,False,미완료; 검증게이트 시험과 별개
+246,WLF00000055,통합문화이용권,True,True,True,False,미완료; 검증게이트 시험과 별개
+247,WLF00003251,산림보호지원단,True,True,True,False,미완료; 검증게이트 시험과 별개
+248,WLF00001161,표준모자보건수첩 제공,True,True,True,False,미완료; 검증게이트 시험과 별개
+249,WLF00001107,지역아동센터 지원,True,True,True,False,미완료; 검증게이트 시험과 별개
+250,WLF00001138,"자활근로(기초, 차상위)",True,True,True,False,미완료; 검증게이트 시험과 별개
+251,WLF00001156,재취업지원서비스 시행지원,True,True,True,False,미완료; 검증게이트 시험과 별개
+252,WLF00000842,보육교직원 인건비 지원,True,True,True,False,미완료; 검증게이트 시험과 별개
+253,WLF00000838,고용보험 미적용자 출산급여 지원,True,True,True,False,미완료; 검증게이트 시험과 별개
+254,WLF00000030,육아종합지원서비스 제공,True,True,True,False,미완료; 검증게이트 시험과 별개
+255,WLF00003224,출산육아기 고용안정장려금,True,True,True,False,미완료; 검증게이트 시험과 별개
+256,WLF00000048,국가유공자등대부지원,True,True,True,False,미완료; 검증게이트 시험과 별개
+257,WLF00003193,제대군인 대부지원,True,True,True,False,미완료; 검증게이트 시험과 별개
+258,WLF00003272,의사상자지원,True,True,True,False,미완료; 검증게이트 시험과 별개
+259,WLF00001132,생계급여(맞춤형 급여),True,True,True,False,미완료; 검증게이트 시험과 별개
+260,WLF00003226,"모성보호육아지원(출산전후휴가(유산ㆍ사산휴가 포함) 급여, 육아휴직등 급여)",True,True,True,False,미완료; 검증게이트 시험과 별개
+261,WLF00001071,우수학생 국가장학금 지원,True,True,True,False,미완료; 검증게이트 시험과 별개
+262,WLF00000095,사회보험사각지대해소 사업(두루누리 사회보험료 지원사업),True,True,True,False,미완료; 검증게이트 시험과 별개
+263,WLF00001073,장기복무제대군인수업료지원,True,True,True,False,미완료; 검증게이트 시험과 별개
+264,WLF00001112,긴급복지 교육지원,True,True,True,False,미완료; 검증게이트 시험과 별개
+265,WLF00003178,긴급복지 해산비지원,True,True,True,False,미완료; 검증게이트 시험과 별개
+266,WLF00001183,다문화보육료지원,True,True,True,False,미완료; 검증게이트 시험과 별개
+267,WLF00003248,재가급여,True,True,True,False,미완료; 검증게이트 시험과 별개
+268,WLF00003194,시설급여,True,True,True,False,미완료; 검증게이트 시험과 별개
+269,WLF00001119,차상위본인부담경감대상자지원,True,True,True,False,미완료; 검증게이트 시험과 별개
+270,WLF00001063,주거안정 월세대출,True,True,True,False,미완료; 검증게이트 시험과 별개
+271,WLF00003222,버팀목전세자금대출,True,True,True,False,미완료; 검증게이트 시험과 별개
+272,WLF00000037,시간제보육 지원,True,True,True,False,미완료; 검증게이트 시험과 별개
+273,WLF00001100,큰글자책 보급 지원,True,True,True,False,미완료; 검증게이트 시험과 별개
+274,WLF00005004,치매검사비 지원,True,True,True,False,미완료; 검증게이트 시험과 별개
+275,WLF00005024,장애인 자립지원 시범사업,True,True,True,False,미완료; 검증게이트 시험과 별개

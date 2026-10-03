@@ -1,0 +1,27 @@
+{
+  "review_date": "2026-10-03",
+  "original_policies": 461,
+  "flagged_reviewed": 275,
+  "outside_this_review": 186,
+  "review_class_counts": {
+    "추가정보·세부조건 확인 필요": 252,
+    "기관·사업주 지원 경로 중심": 21,
+    "일반안내 가능": 2
+  },
+  "source_clarification_needed": 12,
+  "official_partial_crosschecks": 5,
+  "matched_evidence_policies": 275,
+  "availability_mapped_policies": 275,
+  "release_guard_tested_policies": 275,
+  "legacy_diagnostic_rules_within_275": 12,
+  "new_complete_eligibility_rules": 0,
+  "actual_eligibility_validated": 0,
+  "active_policies_preserved": 8,
+  "retired_policies_preserved": 19,
+  "source_sha256": "3133f57353d31c979033d797f3ac44a7a00b85a2d344143f4b4e83da28853b78",
+  "review_manifest_sha256": "ccc65c3c02599acbc0472624fe6d1348b2d78458664ae18dae84760548ca5651",
+  "meaning": "275개 보관 원문의 조건 검토 완료. 완전한 자격 실행식 검증·최신공고 검증·모델학습 완료를 뜻하지 않음",
+  "replay_meaning": "실제자격 공개차단 시험275건. 정책별 긍정/부정/경계 사례를 전부 검증한 수가 아님.",
+  "diagnostic_replay_count": 12,
+  "review_target_sha256": "4ec5a11b6ba07a39397d80ae9ffcc219ae47a3afe330329426d0ca6c03c89372"
+}

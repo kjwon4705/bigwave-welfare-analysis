@@ -281,6 +281,9 @@ def main():
     build_no_question_model(ROOT)
     from 공통변수_v3 import append_site
     append_site()
+    # 별도275개 원문 검토 보고서는 재학습·활성목록 확대와 독립적으로 유지한다.
+    from 정책275_정밀검토 import append_site as append_policy_review
+    append_policy_review()
     # 발표용 최신 그림은 별도 폴더에 동일 산출물을 복사.
     dest=ROOT/'발표자료/중간보고회발표자료/그림/재분석_20261003';dest.mkdir(exist_ok=True)
     for f in list((OUT/'charts').glob('*.png'))+list(OUT.glob('*.csv'))+[OUT/'재분석_집계표.xlsx']:shutil.copy2(f,dest/f.name)
