@@ -1,0 +1,28 @@
+{
+  "revision": "2026-10-03",
+  "analysis_type": "기본 이용대상 규칙 집계; 확산모델 아님",
+  "original_policies": 461,
+  "audit_excluded": 451,
+  "retired_model_policies": 19,
+  "overlap": 17,
+  "excluded_union": 453,
+  "active_policies": 8,
+  "people": 33944,
+  "households": 18467,
+  "weighted_mean_positive": 6.021134748248228,
+  "weighted_mean_unknown": 1.032923101382714,
+  "weighted_mean_negative": 0.9459421503690593,
+  "active_service_names": [
+    "가족전용상담전화",
+    "무료법률상담",
+    "마을변호사",
+    "청소년성문화센터설치운영",
+    "노후준비서비스",
+    "디지털배움터",
+    "장애인 집합 정보화교육",
+    "WEE 클래스 상담지원"
+  ],
+  "raw_policy_sha256": "3133f57353d31c979033d797f3ac44a7a00b85a2d344143f4b4e83da28853b78",
+  "raw_person_sha256": "469b6d9331be6c7fbfe5d10724fa8168eb14db57ae682fce75884342b54850ac",
+  "denominator": "전 표본/각 집계그룹 가구원 가중치 합; 미확인 포함"
+}
