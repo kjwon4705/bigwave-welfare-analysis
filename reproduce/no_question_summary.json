@@ -1,0 +1,27 @@
+{
+  "version": "2026-10-03-B1",
+  "source_policies": 461,
+  "prior_excluded": 453,
+  "reviewed_active": 8,
+  "new_excluded": 6,
+  "general_guidance_policies": 2,
+  "all_excluded_from_model_b": 459,
+  "validated_actual_eligibility_policies": 0,
+  "people": 33944,
+  "households": 18467,
+  "raw_columns": 337,
+  "prediction_features": 0,
+  "weighted_mean_guidance": 2.0,
+  "unweighted_mean_guidance": 2.0,
+  "guidance_count_variance": 0.0,
+  "fit_performed": false,
+  "accuracy": null,
+  "auc": null,
+  "foreign_national_respondents_retained": 556,
+  "source_sha256": {
+    "policy": "3133f57353d31c979033d797f3ac44a7a00b85a2d344143f4b4e83da28853b78",
+    "people": "469b6d9331be6c7fbfe5d10724fa8168eb14db57ae682fce75884342b54850ac",
+    "previous_audit": "ccb0e1adba045614763d651db7315daf7c1c342e8dc1e01e48fbec1014b5875a"
+  },
+  "claim_scope": "선정 2개는 일반 안내만. 실제 지원·선정 예측의 검증 완료 정책은 없음. 제외는 부적격이 아니라 모델 범위 밖."
+}

@@ -1,0 +1,22 @@
+{
+  "version": "2026-10-03-B1",
+  "model_type": "deterministic_constant_guidance",
+  "output_type": "general_guidance_only",
+  "policy_ids": [
+    "WLF00006295",
+    "WLF00006315"
+  ],
+  "required_person_features": [],
+  "extra_questions": [],
+  "population_scope": "사회조사 2025 만13세 이상 응답자 전체; 일반 정보·상담 안내",
+  "excluded_outputs": [
+    "실제 선정 여부",
+    "지원금 지급 여부",
+    "서비스 필요성",
+    "현장 이용 가능 여부"
+  ],
+  "fit_performed": false,
+  "train_test_split": null,
+  "fit_reason": "실제 결과 라벨 없음; 선택된 안내 규칙은 모든 응답자에 대해 상수",
+  "policy_source_sha256": "3133f57353d31c979033d797f3ac44a7a00b85a2d344143f4b4e83da28853b78"
+}

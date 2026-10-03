@@ -286,6 +286,9 @@ def main():
     report=f'''# 제외 정책 반영 후 재분석\n\n원정책 461개 중 감사 추가확인451개와 기존 모델19개를 모두 제외했습니다. 중복17개이므로 제외합집합453개, 활성8개입니다.\n\n분석대상은 {len(raw):,}명 / {stats['households']:,}가구입니다. 기본대상 부합 가중평균은 {stats['weighted_mean_positive']:.3f}개, 추가확인은 {stats['weighted_mean_unknown']:.3f}개입니다. 실제 수급정책 수가 아닙니다.\n\n남은 서비스는 일반 상담·교육 위주입니다. 이용 의사를 전제한 명시적 규칙 분석이며 모델 학습을 하지 않았습니다. 기존19개 확산모델 성능·예측 결과는 철회합니다. 수급자별 비교도 직접 관측된 자격이 없어 산출하지 않습니다.\n\n활성 서비스: {', '.join(pol['서비스명'])}.\n\n변경된 데이터는 Processed_data의 활성정책/매칭결과에 저장했습니다. 원본461개는 추적용으로 Raw_data에 보존했습니다. 이전 결과·코드·모델은 비공개 Archive에 보관합니다. 공개 사이트에는 개인기록을 포함하지 않습니다.\n'''
     (OUT/'재분석보고서.md').write_text(report,encoding='utf-8')
     site_build(stats,pol,ps,st,ds,freqs)
+    # 별도 모델 B 페이지도 함께 재생성하여 기존 보고서 갱신 때 유실되지 않게 한다.
+    from 무질문모델 import build as build_no_question_model
+    build_no_question_model(ROOT)
     # 발표용 최신 그림은 별도 폴더에 동일 산출물을 복사.
     dest=ROOT/'발표자료/중간보고회발표자료/그림/재분석_20261003';dest.mkdir(exist_ok=True)
     for f in list((OUT/'charts').glob('*.png'))+list(OUT.glob('*.csv'))+[OUT/'재분석_집계표.xlsx']:shutil.copy2(f,dest/f.name)
