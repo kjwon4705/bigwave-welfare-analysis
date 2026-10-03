@@ -151,15 +151,16 @@ def build(root):
     groups = pd.DataFrame(groups)
     # 기존 감사는 재분류하지 않고 대표사유별 수만 참고 정보로 공개한다.
     reasons = audit[audit['서비스ID'].isin(c['audit_excluded'])].groupby('대표사유').size().reset_index(name='정책수')
+    current_a=json.loads((root/'분석/Result/정책제외_재분석_20261003/summary.json').read_text(encoding='utf-8'))
     comparison = pd.DataFrame([
         ['분석 대상 정책수', '8', '2 (일반 안내 한정)'],
-        ['선정 원칙', '이용 희망 등을 전제한 기본대상 안내', '전 표본에서 추가 정보가 필요하지 않은 일반 안내만'],
+        ['선정 원칙', 'v3 관측조건·일반안내 판정; 미관측 필요성 보존', '전 표본에서 추가 정보가 필요하지 않은 일반 안내만'],
         ['기존 제외 정책 453개', '제외 유지', '제외 유지'],
         ['개인별 미확인', '별도 표시', '미확인이 남는 정책 자체를 모델 범위에서 제외'],
-        ['평균의 의미', '기본대상 부합 수 6.02', '일반 안내 수 2.00; 측정 범위가 달라 성능 비교 불가'],
+        ['평균의 의미', f"수정 후 기본대상 부합 수 {current_a['weighted_mean_positive']:.2f}", '일반 안내 수 2.00; 측정 범위가 달라 성능 비교 불가'],
         ['실제 지원 여부 정답', '없음', '없음'],
         ['학습/정확도', '학습하지 않음', '상수 규칙; 학습 및 정확도 보고하지 않음'],
-    ], columns=['항목','모델A_기존분석','모델B_무질문분석'])
+    ], columns=['항목','모델A_수정후분석','모델B_무질문분석'])
     flow = pd.DataFrame({'단계':['원정책','기존 제외','이번 검토','이번 추가 제외','일반 안내 포함'],
                          '정책수':[461,453,8,6,2]})
     tables = {'선정검토8개':review, '선정2개':selected, '선정흐름':flow, '생애주기':groups,
@@ -281,7 +282,7 @@ def build_page(site,out,s,review,selected,groups,comparison,reasons):
 '''+table(review[['서비스명','모델B_선정','판정근거','검토설명']])+'''
 <details><summary>검토에 사용한 정책 원문 보기</summary>'''+table(review[['서비스명','지원대상_보관원문','선정기준_보관원문','원문기준연도']])+'''</details>
 <h2>5. 기존 분석과의 차이</h2>'''+table(comparison)+'''
-<p>기존 평균6.02개와 새 평균2.00개는 서로 다른 범위를 측정합니다. 성능이 하락하거나 향상했다고 비교할 수 없습니다. 기존 보고서는 이용 희망 등을 전제한 기본대상 분석으로 유지합니다.</p>
+<p>모델A의 수정 후 평균과 모델B의2.00개는 서로 다른 범위를 측정합니다. 성능이 하락하거나 향상했다고 비교할 수 없습니다. 과거6.02개는 미관측 필요성을 생략한 값으로 수정되었습니다.</p>
 <h2>6. 데이터·모델·평가 방법</h2><ul>
 <li>사람 데이터: 사회조사2025, 33,944행·337열. 가구번호와 가구원번호 조합으로 중복을 확인했습니다.</li>
 <li>정책 데이터: 보관 원문461개 및 기존 제외 목록. 새로운 설문, 외부 개인자료, 확산모델 합성자료는 사용하지 않았습니다. 가계동향조사를 같은 사람 자료처럼 연결하지 않았습니다.</li>
@@ -300,7 +301,7 @@ def build_page(site,out,s,review,selected,groups,comparison,reasons):
     template=re.sub(r'<main>[\s\S]*?</main>',lambda m:'<main>'+body+'</main>',template,count=1)
     (site/'no_question_model.html').write_text(template,encoding='utf-8')
     marker='<!-- no-question-model-link -->'
-    banner=marker+'<p class="note"><strong>별도 분석 추가:</strong> 추가 질문 없이 전 표본에서 판정하는 범위를 더 엄격하게 검토한 <a href="no_question_model.html">모델 B 보고서</a>를 확인하세요. 기존 8개는 이용 희망 등을 전제한 기본대상 분석입니다.</p><!-- /no-question-model-link -->'
+    banner=marker+'<p class="note"><strong>별도 분석:</strong> 전 표본에서 추가 질문 없이 일반안내하는 범위를 검토한 <a href="no_question_model.html">모델 B 보고서</a>를 확인하세요.8개 분석은 v3 관측조건을 적용하며 실제 수급자격 확정이 아닙니다.</p><!-- /no-question-model-link -->'
     for p in site.glob('*.html'):
         text=p.read_text(encoding='utf-8')
         if 'href="no_question_model.html">무질문 모델 B</a>' not in text:

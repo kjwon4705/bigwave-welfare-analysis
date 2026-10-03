@@ -1,0 +1,115 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>공통변수 v3 수정 결과</title><style>*{box-sizing:border-box}body{margin:0;background:#f5f7fa;color:#203246;font:16px/1.75 'Malgun Gothic',sans-serif}header{background:#173b58;color:white;padding:34px max(20px,calc((100vw - 1060px)/2))}header h1{font-size:26px;margin:0}nav{background:white;border-bottom:1px solid #dce3ea;padding:14px 20px;display:flex;justify-content:center;gap:24px;flex-wrap:wrap}a{color:#236496}main{max-width:1100px;margin:auto;padding:25px 20px 65px}h1,h2{line-height:1.4}h2{margin-top:38px;font-size:22px}.note{background:#fff1d6;border-left:5px solid #bd7909;padding:18px;margin:22px 0}.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px}.card{padding:22px;background:white;border:1px solid #dae2eb;border-radius:10px}.card b{display:block;font-size:34px;color:#1c537b}.table{overflow:auto}table{border-collapse:collapse;background:white;width:100%;font-size:14px}th,td{padding:11px 13px;border:1px solid #dae2eb;text-align:left;vertical-align:top;min-width:95px}th{background:#e9eff6}figure{margin:28px 0}img{max-width:100%;height:auto;border:1px solid #dce3ea;background:white}figcaption,.small{font-size:13px;color:#526779}footer{border-top:1px solid #dce3ea;text-align:center;font-size:13px;padding:22px}code{background:#e6edf4;padding:2px 5px}li{margin:6px 0}</style></head><body><header><h1>복지서비스 기본 이용대상 분석</h1><div>2026-10-03 재분석 · 활성 서비스 8개 · 사회조사 2025</div></header><nav><a href="index.html">홈</a><a href="variables.html">중앙부처 복지서비스</a><a href="eda.html">사회조사 EDA</a><a href="mapping.html">공통변수</a><a href="codebook.html">공통 변수 상세 설명</a><a href="diffusion.html">분석방법 변경</a><a href="no_question_model.html">무질문 모델 B</a><a href="preprocessing_fixes.html">전처리 수정</a></nav><main><h1>공통변수 v3 · 오류 수정 결과</h1>
+<p>정책 원문의 필수·제외·예외조건을 구분하고 사람의 관측사실과 행정상 자격을 분리했습니다. 자동 추출이 실패한 정책을 무조건 통과시키는 동작을 제거했습니다.</p>
+<div class="note"><strong>수정 범위와 남은 검토</strong><br>대표12개와 기존8개 후보의 합집합16개 조건을 구조화했습니다. 그중13개는 일부 조건을 구조화한 상태입니다. 나머지445개는 미검토 잠금입니다. 실제 선정·지급 정답으로 검증 완료한 정책은 아직 없습니다.</div>
+<div class="cards"><div class="card">정책 원문<b>461개</b></div><div class="card">조건 구조화<b>16개</b>완전 자격 검증 아님</div><div class="card">미검토 잠금<b>445개</b>자동 통과하지 않음</div><div class="card">기존 추천 제외<b>453개</b>재포함하지 않음</div></div>
+<h2>수정된 처리 방식</h2><ul><li>정책별로 AND/OR/NOT, 조건 주체, 원문, 검토상태를 저장합니다. 검색 태그는 자격 제한으로 쓰지 않습니다.</li>
+<li>소득은 구간 경계와 개념을 보존합니다.4인 이상을4인으로 확정하거나 정부지원 생활비를 법정 수급으로 추정하지 않습니다.</li>
+<li>관측되지 않은 등록상태·소득인정액·상담/교육 필요성은 미확인으로 남깁니다.</li>
+<li>자녀·배우자 정보를 본인의 값으로 대신하지 않습니다. 예외 경로를 전체 연령 범위에 합치지 않습니다.</li>
+<li>0/1/2 값을 사람과 정책에서 바로 비교하지 않습니다. 결과는 관측조건 부합·비해당·미확인으로 계산합니다.</li></ul>
+<h2>기존8개 분석에 미친 영향</h2><p>새 조건식으로 계산한 기본대상/일반안내 부합 가중평균은 <strong>2.98개</strong>, 미확인 가중평균은 <strong>4.07개</strong>입니다. 기존6.02개는 상담·디지털 어려움 등의 미관측 조건을 생략한 값이므로 대체했습니다. 두 값 모두 실제 수급 가능한 지원금 개수가 아닙니다.</p>
+<p>전체33,944명·18,467가구를 유지했습니다. 모델B는 별도 요건 없는 일반 안내2개만 출력하는 한정된 범위를 유지합니다. 추가 질문 없이 전체 자격을 판정할 수 있다는 뜻은 아닙니다.</p>
+<h2>감사 항목별 수정</h2><div class="table"><table class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>감사번호</th>
+      <th>수정</th>
+      <th>처리내용</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>F01</td>
+      <td>태그는 검색정보로만 유지</td>
+      <td>태그에서 연령/전용 여부 생성 제거</td>
+    </tr>
+    <tr>
+      <td>F02</td>
+      <td>연령 경로·예외 분리</td>
+      <td>장애수당 상한20세 삭제; 아동수당 경로OR; 월말 생일경계 미확인</td>
+    </tr>
+    <tr>
+      <td>F03</td>
+      <td>부정문 키워드 추출 제거</td>
+      <td>학생/자영업 제외를 필수로 생성하지 않음</td>
+    </tr>
+    <tr>
+      <td>F04</td>
+      <td>조건마다 대상주체 저장</td>
+      <td>본인·자녀를 임의대체하지 않음</td>
+    </tr>
+    <tr>
+      <td>F05</td>
+      <td>정책별 AND/OR/NOT 식</td>
+      <td>경로OR·경로내AND·퇴직경로 보존</td>
+    </tr>
+    <tr>
+      <td>F06</td>
+      <td>급여종류·수급권 분리</td>
+      <td>소득% 병기로 수급 필수조건을 완화하지 않음</td>
+    </tr>
+    <tr>
+      <td>F07</td>
+      <td>생활비 원뜻 보존</td>
+      <td>수급/차상위는미관측</td>
+    </tr>
+    <tr>
+      <td>F08</td>
+      <td>소득/가구수 구간 보존</td>
+      <td>4인이상 상한미공개;800만원이상 상한없음;인정액미추정</td>
+    </tr>
+    <tr>
+      <td>F09</td>
+      <td>동읍면3/4 명시매핑</td>
+      <td>법정 농어촌·도서벽지로 확대해석하지 않음</td>
+    </tr>
+    <tr>
+      <td>F10</td>
+      <td>미검토 정책 잠금</td>
+      <td>조건추출실패=미확인;무조건통과 삭제</td>
+    </tr>
+    <tr>
+      <td>F11</td>
+      <td>관측과 법정자격 분리</td>
+      <td>카드/국적/임차에서 법정상태를 추정하지 않음</td>
+    </tr>
+    <tr>
+      <td>F12</td>
+      <td>조사대상·결측 보존</td>
+      <td>60세미만 자녀문항미관측;무학 재학상태 비해당 구분</td>
+    </tr>
+    <tr>
+      <td>F13</td>
+      <td>완전자격검증 상태 분리</td>
+      <td>NaN없음으로TierA생성 금지</td>
+    </tr>
+    <tr>
+      <td>F14</td>
+      <td>전체표본분모 유지</td>
+      <td>미확인 포함한 부합/비해당/미확인 집계</td>
+    </tr>
+    <tr>
+      <td>F15</td>
+      <td>현행8개 규칙도 v3연결</td>
+      <td>상담/디지털 어려움 누락은미확인 처리</td>
+    </tr>
+    <tr>
+      <td>F16</td>
+      <td>2개 일반안내 의미 유지</td>
+      <td>실제 수급예측이라고 표현하지 않음</td>
+    </tr>
+    <tr>
+      <td>F17</td>
+      <td>레거시 실행경로 교체/차단</td>
+      <td>새 전처리 연결, 미수정 구 스크립트는실행차단</td>
+    </tr>
+    <tr>
+      <td>F18</td>
+      <td>사실·조건·결과 스키마 분리</td>
+      <td>공통0/1/2 숫자 직접비교 제거</td>
+    </tr>
+  </tbody>
+</table></div>
+<h2>검증 방법</h2><p>오류가 재현됐던 연령·학생 제외·IQ 누락·퇴직 경로를 합성 사례로 검사했습니다.3값논리의 모든 두 입력 조합, 본인/자녀 주체 분리, 가구 응답 충돌, 결측·구간 보존 및 기존 제외정책 재포함 방지도 검사했습니다. 이는 소프트웨어 검사이며 실제 행정 자격 정확도를 측정한 것이 아닙니다.</p>
+<p><a href="tables/common_v3_fixes.csv">수정내역 CSV</a> · <a href="tables/common_v3_results.xlsx">수정 결과·정책 진단 Excel</a> · <a href="reproduce/common_v3_README.md">재현 방법</a></p>
+<p>개인 원자료와 개인별 결과는 공개하지 않습니다. 수정 전 코드·보고서는 로컬 Archive에 보존했습니다.</p></main><footer>복지로 보관 원문 · 통계청 사회조사 2025 · 원자료 비공개, 집계 결과만 공개</footer></body></html>

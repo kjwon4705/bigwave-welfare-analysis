@@ -7,3 +7,5 @@
 ## 별도 모델 B
 
 [무질문 모델 보고서](https://kjwon4705.github.io/bigwave-welfare-analysis/no_question_model.html): 기존 데이터만으로 전표본에 안내 가능한 일반 서비스2개. 실제 수급자격 예측이나 새 학습모델이 아니다. 선정 근거·집계표·실행 코드를 함께 공개한다.
+
+공통변수 v3 수정이 반영되었습니다. 추가 실행 파일과 재현 방법은 reproduce/common_v3_README.md를 참고하세요.

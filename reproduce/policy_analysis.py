@@ -38,13 +38,13 @@ plt.rcParams.update({'font.family':'Malgun Gothic','axes.unicode_minus':False,'f
 
 RULES = {
  '가족전용상담전화': ('all', '일반 가족을 포함하며 별도 선정기준 없음', '모든 응답자: 기본 안내'),
- '무료법률상담': ('national', '법률상담을 원하는 국민', '현재국적코드=1: 기본 안내; 그 외 미확인'),
+ '무료법률상담': ('national', '법률상담이 필요한 국민', '국적은 관측; 상담 필요성은 미확인'),
  '마을변호사': ('all', '별도 지원요건 없이 모든 주민', '모든 응답자: 기본 안내'),
- '청소년성문화센터설치운영': ('national', '일반 국민 대상 성교육 서비스', '현재국적코드=1: 기본 안내; 그 외 미확인'),
+ '청소년성문화센터설치운영': ('national', '아동청소년·교사·양육자 등 대상별 성교육', '개별 프로그램 대상 범위가 미확정이므로 미확인'),
  '노후준비서비스': ('national', '일반 국민 모두', '현재국적코드=1: 기본 안내; 그 외 미확인'),
- '디지털배움터': ('national', '디지털 교육을 원하는 국민', '현재국적코드=1: 기본 안내; 그 외 미확인'),
- '장애인 집합 정보화교육': ('card', '정보화교육을 원하는 장애인', '장애인복지카드_소유여부=1: 기본 안내; 미소유/결측은 미확인'),
- 'WEE 클래스 상담지원': ('school', '초·중·고 재학생의 일반 상담', '교육정도코드∈{1,2,3} AND 재학상태코드=3; 결측 보존'),
+ '디지털배움터': ('national', 'AI·디지털에 어려움을 겪는 국민', '디지털 어려움은 미관측이므로 미확인'),
+ '장애인 집합 정보화교육': ('card', '정보화교육이 필요한 장애인', '등록상태·교육 필요성은 미확인; 카드 미소유로 비장애 추정 금지'),
+ 'WEE 클래스 상담지원': ('school', '초·중·고 재학생 중 상담·교육활동이 필요한 학생', '초중고 재학 AND 상담 필요성(미관측); 미재학생은 관측조건 비해당'),
 }
 
 def checked(path, base=ROOT):
@@ -68,20 +68,8 @@ def load_config():
     return c
 
 def evaluate_basic(raw, policies):
-    y={}
-    for _,p in policies.iterrows():
-        rule=p['판정규칙키']; n=len(raw)
-        if rule=='all': arr=np.ones(n)
-        elif rule=='national': arr=np.where(raw['현재국적코드'].eq(1),1.,np.nan)
-        elif rule=='card': arr=np.where(raw['장애인복지카드_소유여부'].eq(1),1.,np.nan)
-        elif rule=='school':
-            edu=raw['교육정도코드'];enr=raw['재학상태코드']
-            good=edu.isin([1,2,3]) & enr.eq(3)
-            bad=(edu.notna() & ~edu.isin([1,2,3])) | (enr.notna() & ~enr.eq(3))
-            arr=np.where(good,1.,np.where(bad,0.,np.nan))
-        else: raise ValueError(f'검토되지 않은 규칙: {rule}')
-        y[p['서비스ID']]=arr
-    return pd.DataFrame(y,index=raw.index)
+    from 공통변수_v3 import active_evaluate
+    return active_evaluate(raw, policies)
 
 def csv(df,path): df.to_csv(path,index=False,encoding='utf-8-sig')
 
@@ -159,7 +147,7 @@ def site_build(stats,policies,ps,st,ds,freqs):
     public_config=load_config()  # 공개된 정책의 ID 목록만 포함; 개인 식별정보 없음.
     (stage/'reproduce'/'active_config.json').write_text(json.dumps(public_config,ensure_ascii=False,indent=2),encoding='utf-8')
     (stage/'reproduce'/'README.md').write_text('''# 재현 방법\n개인 원자료는 공개하지 않습니다. pandas, numpy, matplotlib, openpyxl이 필요합니다.\n\n로컬 프로젝트에 다음 파일을 배치합니다.\n- policy_analysis.py → Code/정책제외_재분석.py\n- active_config.json → Code/활성정책_설정.json\n- 보관 정책 원문 → 분석/Raw_data/중앙부처복지서비스_데이터_보완.csv\n- 이용 허가를 받은 사회조사 원자료 → 분석/Raw_data/2025_*.csv (한 파일)\n\n분석/Processed_data 및 발표자료/중간보고회발표자료/그림 폴더를 만든 뒤 프로젝트 루트에서 Python으로 Code/정책제외_재분석.py를 실행합니다.\n정책 원문 해시가 보관본과 다르면 중단합니다. 개인 원자료가 없는 공개 저장소만으로는 다시 계산할 수 없습니다.\n가중치는 가구원가중값을 사용하고 unknown은 비율 분모에 포함합니다. 공개 설정은 정책ID 목록이며 개인ID가 아닙니다.\n''',encoding='utf-8')
-    note='<p class="note">여기서 기본대상 부합은 저장된 정책 원문의 일반 이용대상 조건과 일치한다는 뜻입니다. 서비스 이용 희망을 전제로 하며, 실제 신청 승인·선정·급여 지급을 예측하지 않습니다. 미확인을 부적격으로 처리하지 않았습니다.</p>'
+    note='<p class="note">여기서 기본대상 부합은 저장된 정책 원문의 일반 이용대상 조건과 일치한다는 뜻입니다. 관측되지 않은 상담·교육 필요성은 미확인으로 남깁니다. 실제 신청 승인·선정·급여 지급을 예측하지 않습니다. 미확인을 부적격으로 처리하지 않았습니다.</p>'
     cards=f'<div class="cards"><div class="card">활성 서비스<b>8개</b></div><div class="card">분석 대상<b>33,944명</b>18,467가구</div><div class="card">기본대상 부합 평균<b>{stats["weighted_mean_positive"]:.2f}개</b>가구원 가중치 적용</div><div class="card">추가확인 평균<b>{stats["weighted_mean_unknown"]:.2f}개</b>개인별 미확인 조건</div></div>'
     flow='<p>원정책 461개에서 추가확인 대상 451개와 기존 확산모델의 19개를 모두 제외했습니다. 두 목록에서 17개가 겹쳐 총 453개를 제외했고, 8개를 재분석했습니다.</p>'
     downloads='<p><a href="tables/analysis_tables.xlsx">집계표 엑셀 내려받기</a> · <a href="tables/정책별_기본대상.csv">정책별 집계 CSV</a> · <a href="reproduce/README.md">재현 방법과 코드</a></p>'
@@ -207,6 +195,8 @@ def site_build(stats,policies,ps,st,ds,freqs):
     shutil.copytree(stage,SITE,dirs_exist_ok=True)
 
 def main():
+    from 공통변수_v3 import build as build_common_v3
+    build_common_v3()
     OUT.mkdir(parents=True,exist_ok=True)
     c=load_config()
     assert hashlib.sha256(RAW_POLICY.read_bytes()).hexdigest()==c['source_sha256'],'정책 원문 변경: 먼저 재감사 필요'
@@ -219,7 +209,7 @@ def main():
     pol['판정규칙키']=pol['서비스명'].map(lambda n:RULES[n][0])
     pol['기본대상_원문요약']=pol['서비스명'].map(lambda n:RULES[n][1])
     pol['사람쪽_확인방법']=pol['서비스명'].map(lambda n:RULES[n][2])
-    pol['분석의미']='이용 희망 전제의 기본 안내; 실제 자격 확정 아님'
+    pol['분석의미']='v3 관측조건·일반안내. 미관측 상담·교육 필요성은미확인; 실제 자격 확정 아님'
     rawfile=next((ROOT/'분석/Raw_data').glob('2025_*.csv'))
     raw=pd.read_csv(rawfile,encoding='cp949',low_memory=False)
     keys=['가구일련번호','가구원번호'];assert not raw.duplicated(keys).any()
@@ -249,7 +239,7 @@ def main():
     st=grouped(raw,y,ages).set_index('구분').reindex(STAGES).reset_index()
     dl=raw['장애인복지카드_소유여부'].map({1:'카드 소유',2:'카드 미소유'}).fillna('카드 응답 미확인')
     ds=grouped(raw,y,dl)
-    stats={'revision':'2026-10-03','analysis_type':'기본 이용대상 규칙 집계; 확산모델 아님',
+    stats={'revision':'2026-10-03','analysis_type':'v3 관측조건·일반안내 집계; 실제자격/확산모델 아님',
       'original_policies':461,'audit_excluded':451,'retired_model_policies':19,'overlap':17,'excluded_union':453,'active_policies':8,
       'people':len(raw),'households':raw['가구일련번호'].nunique(),
       'weighted_mean_positive':float(np.average(y.eq(1).sum(axis=1),weights=w)),
@@ -283,12 +273,14 @@ def main():
                 for cell in row:cell.alignment=Alignment(wrap_text=True,vertical='top')
                 ws.row_dimensions[row[0].row].height=46
     (OUT/'summary.json').write_text(json.dumps(stats,ensure_ascii=False,indent=2),encoding='utf-8')
-    report=f'''# 제외 정책 반영 후 재분석\n\n원정책 461개 중 감사 추가확인451개와 기존 모델19개를 모두 제외했습니다. 중복17개이므로 제외합집합453개, 활성8개입니다.\n\n분석대상은 {len(raw):,}명 / {stats['households']:,}가구입니다. 기본대상 부합 가중평균은 {stats['weighted_mean_positive']:.3f}개, 추가확인은 {stats['weighted_mean_unknown']:.3f}개입니다. 실제 수급정책 수가 아닙니다.\n\n남은 서비스는 일반 상담·교육 위주입니다. 이용 의사를 전제한 명시적 규칙 분석이며 모델 학습을 하지 않았습니다. 기존19개 확산모델 성능·예측 결과는 철회합니다. 수급자별 비교도 직접 관측된 자격이 없어 산출하지 않습니다.\n\n활성 서비스: {', '.join(pol['서비스명'])}.\n\n변경된 데이터는 Processed_data의 활성정책/매칭결과에 저장했습니다. 원본461개는 추적용으로 Raw_data에 보존했습니다. 이전 결과·코드·모델은 비공개 Archive에 보관합니다. 공개 사이트에는 개인기록을 포함하지 않습니다.\n'''
+    report=f'''# 제외 정책 반영 후 재분석\n\n원정책 461개 중 감사 추가확인451개와 기존 모델19개를 모두 제외했습니다. 중복17개이므로 제외합집합453개, 활성8개입니다.\n\n분석대상은 {len(raw):,}명 / {stats['households']:,}가구입니다. 기본대상 부합 가중평균은 {stats['weighted_mean_positive']:.3f}개, 추가확인은 {stats['weighted_mean_unknown']:.3f}개입니다. 실제 수급정책 수가 아닙니다.\n\n남은 서비스는 일반 상담·교육 위주입니다. v3 조건식으로 미관측 필요성을 보존한 분석이며 모델 학습을 하지 않았습니다. 기존19개 확산모델 성능·예측 결과는 철회합니다. 수급자별 비교도 직접 관측된 자격이 없어 산출하지 않습니다.\n\n활성 서비스: {', '.join(pol['서비스명'])}.\n\n변경된 데이터는 Processed_data의 활성정책/매칭결과에 저장했습니다. 원본461개는 추적용으로 Raw_data에 보존했습니다. 이전 결과·코드·모델은 비공개 Archive에 보관합니다. 공개 사이트에는 개인기록을 포함하지 않습니다.\n'''
     (OUT/'재분석보고서.md').write_text(report,encoding='utf-8')
     site_build(stats,pol,ps,st,ds,freqs)
     # 별도 모델 B 페이지도 함께 재생성하여 기존 보고서 갱신 때 유실되지 않게 한다.
     from 무질문모델 import build as build_no_question_model
     build_no_question_model(ROOT)
+    from 공통변수_v3 import append_site
+    append_site()
     # 발표용 최신 그림은 별도 폴더에 동일 산출물을 복사.
     dest=ROOT/'발표자료/중간보고회발표자료/그림/재분석_20261003';dest.mkdir(exist_ok=True)
     for f in list((OUT/'charts').glob('*.png'))+list(OUT.glob('*.csv'))+[OUT/'재분석_집계표.xlsx']:shutil.copy2(f,dest/f.name)

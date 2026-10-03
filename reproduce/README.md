@@ -12,3 +12,5 @@
 가중치는 가구원가중값을 사용하고 unknown은 비율 분모에 포함합니다. 공개 설정은 정책ID 목록이며 개인ID가 아닙니다.
 
 모델 B도 함께 생성하므로 no_question_analysis.py를 Code/무질문모델.py로 저장해야 합니다. 모델 B 추가 입력과 결과 의미는 no_question_README.md를 참고하세요.
+
+공통변수 v3 수정이 반영되었습니다. 추가 실행 파일과 재현 방법은 reproduce/common_v3_README.md를 참고하세요.

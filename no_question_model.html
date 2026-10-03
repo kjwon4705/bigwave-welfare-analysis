@@ -1,4 +1,4 @@
-<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>추가 질문 없는 모델 B | 복지서비스 분석</title><style>*{box-sizing:border-box}body{margin:0;background:#f5f7fa;color:#203246;font:16px/1.75 'Malgun Gothic',sans-serif}header{background:#173b58;color:white;padding:34px max(20px,calc((100vw - 1060px)/2))}header h1{font-size:26px;margin:0}nav{background:white;border-bottom:1px solid #dce3ea;padding:14px 20px;display:flex;justify-content:center;gap:24px;flex-wrap:wrap}a{color:#236496}main{max-width:1100px;margin:auto;padding:25px 20px 65px}h1,h2{line-height:1.4}h2{margin-top:38px;font-size:22px}.note{background:#fff1d6;border-left:5px solid #bd7909;padding:18px;margin:22px 0}.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px}.card{padding:22px;background:white;border:1px solid #dae2eb;border-radius:10px}.card b{display:block;font-size:34px;color:#1c537b}.table{overflow:auto}table{border-collapse:collapse;background:white;width:100%;font-size:14px}th,td{padding:11px 13px;border:1px solid #dae2eb;text-align:left;vertical-align:top;min-width:95px}th{background:#e9eff6}figure{margin:28px 0}img{max-width:100%;height:auto;border:1px solid #dce3ea;background:white}figcaption,.small{font-size:13px;color:#526779}footer{border-top:1px solid #dce3ea;text-align:center;font-size:13px;padding:22px}code{background:#e6edf4;padding:2px 5px}li{margin:6px 0}</style></head><body><header><h1>복지서비스 기본 이용대상 분석</h1><div>모델 B · 일반 안내 2개 · 사회조사 2025 · 추가 질문 없음</div></header><nav><a href="index.html">홈</a><a href="variables.html">중앙부처 복지서비스</a><a href="eda.html">사회조사 EDA</a><a href="mapping.html">공통변수</a><a href="codebook.html">공통 변수 상세 설명</a><a href="diffusion.html">분석방법 변경</a><a href="no_question_model.html">무질문 모델 B</a></nav><main><h1>모델 B · 추가 질문 없는 분석</h1>
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>추가 질문 없는 모델 B | 복지서비스 분석</title><style>*{box-sizing:border-box}body{margin:0;background:#f5f7fa;color:#203246;font:16px/1.75 'Malgun Gothic',sans-serif}header{background:#173b58;color:white;padding:34px max(20px,calc((100vw - 1060px)/2))}header h1{font-size:26px;margin:0}nav{background:white;border-bottom:1px solid #dce3ea;padding:14px 20px;display:flex;justify-content:center;gap:24px;flex-wrap:wrap}a{color:#236496}main{max-width:1100px;margin:auto;padding:25px 20px 65px}h1,h2{line-height:1.4}h2{margin-top:38px;font-size:22px}.note{background:#fff1d6;border-left:5px solid #bd7909;padding:18px;margin:22px 0}.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px}.card{padding:22px;background:white;border:1px solid #dae2eb;border-radius:10px}.card b{display:block;font-size:34px;color:#1c537b}.table{overflow:auto}table{border-collapse:collapse;background:white;width:100%;font-size:14px}th,td{padding:11px 13px;border:1px solid #dae2eb;text-align:left;vertical-align:top;min-width:95px}th{background:#e9eff6}figure{margin:28px 0}img{max-width:100%;height:auto;border:1px solid #dce3ea;background:white}figcaption,.small{font-size:13px;color:#526779}footer{border-top:1px solid #dce3ea;text-align:center;font-size:13px;padding:22px}code{background:#e6edf4;padding:2px 5px}li{margin:6px 0}</style></head><body><header><h1>복지서비스 기본 이용대상 분석</h1><div>모델 B · 일반 안내 2개 · 사회조사 2025 · 추가 질문 없음</div></header><nav><a href="index.html">홈</a><a href="variables.html">중앙부처 복지서비스</a><a href="eda.html">사회조사 EDA</a><a href="mapping.html">공통변수</a><a href="codebook.html">공통 변수 상세 설명</a><a href="diffusion.html">분석방법 변경</a><a href="no_question_model.html">무질문 모델 B</a><a href="preprocessing_fixes.html">전처리 수정</a></nav><main><!-- common-v3-note --><p class="note">공통변수 오류를 수정한 v3 결과입니다. 미관측 조건을 충족으로 처리하지 않습니다. <a href="preprocessing_fixes.html">수정 내역과 검증 범위</a></p><h1>모델 B · 추가 질문 없는 분석</h1>
 <p>질문하거나 개인 특성을 추정하지 않고, 현재 보유한 사회조사와 정책 원문만 사용했습니다. 기존 분석과 별도로 실행되는 보수적인 일반 안내 규칙 모델입니다.</p>
 <div class="note"><strong>검토 결과의 한계</strong><br>실제 지원·선정 여부를 검증한 예측모델은 현재 자료로 만들지 못했습니다. 아래 2개는 별도 요건 없는 일반 정보·상담 안내이며, 수급 가능한 지원금 2개를 뜻하지 않습니다. 정확도나 실제 자격을 확인했다는 주장도 하지 않습니다.</div>
 <div class="cards"><div class="card">검토한 기존 후보<b>8개</b>이전 제외 453개 유지</div><div class="card">일반 안내 규칙<b>2개</b>이번 모델에서 6개 추가 제외</div><div class="card">분석 표본<b>33,944명</b>18,467가구 · 전원 유지</div><div class="card">추가 질문·개인특성 추정<b>0개</b>학습하지 않는 상수 규칙</div></div>
@@ -206,7 +206,7 @@
   <thead>
     <tr style="text-align: right;">
       <th>항목</th>
-      <th>모델A_기존분석</th>
+      <th>모델A_수정후분석</th>
       <th>모델B_무질문분석</th>
     </tr>
   </thead>
@@ -218,7 +218,7 @@
     </tr>
     <tr>
       <td>선정 원칙</td>
-      <td>이용 희망 등을 전제한 기본대상 안내</td>
+      <td>v3 관측조건·일반안내 판정; 미관측 필요성 보존</td>
       <td>전 표본에서 추가 정보가 필요하지 않은 일반 안내만</td>
     </tr>
     <tr>
@@ -233,7 +233,7 @@
     </tr>
     <tr>
       <td>평균의 의미</td>
-      <td>기본대상 부합 수 6.02</td>
+      <td>수정 후 기본대상 부합 수 2.98</td>
       <td>일반 안내 수 2.00; 측정 범위가 달라 성능 비교 불가</td>
     </tr>
     <tr>
@@ -248,7 +248,7 @@
     </tr>
   </tbody>
 </table></div>
-<p>기존 평균6.02개와 새 평균2.00개는 서로 다른 범위를 측정합니다. 성능이 하락하거나 향상했다고 비교할 수 없습니다. 기존 보고서는 이용 희망 등을 전제한 기본대상 분석으로 유지합니다.</p>
+<p>모델A의 수정 후 평균과 모델B의2.00개는 서로 다른 범위를 측정합니다. 성능이 하락하거나 향상했다고 비교할 수 없습니다. 과거6.02개는 미관측 필요성을 생략한 값으로 수정되었습니다.</p>
 <h2>6. 데이터·모델·평가 방법</h2><ul>
 <li>사람 데이터: 사회조사2025, 33,944행·337열. 가구번호와 가구원번호 조합으로 중복을 확인했습니다.</li>
 <li>정책 데이터: 보관 원문461개 및 기존 제외 목록. 새로운 설문, 외부 개인자료, 확산모델 합성자료는 사용하지 않았습니다. 가계동향조사를 같은 사람 자료처럼 연결하지 않았습니다.</li>

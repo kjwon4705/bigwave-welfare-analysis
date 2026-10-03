@@ -1,6 +1,6 @@
 {
   "revision": "2026-10-03",
-  "analysis_type": "기본 이용대상 규칙 집계; 확산모델 아님",
+  "analysis_type": "v3 관측조건·일반안내 집계; 실제자격/확산모델 아님",
   "original_policies": 461,
   "audit_excluded": 451,
   "retired_model_policies": 19,
@@ -9,8 +9,8 @@
   "active_policies": 8,
   "people": 33944,
   "households": 18467,
-  "weighted_mean_positive": 6.021134748248228,
-  "weighted_mean_unknown": 1.032923101382714,
+  "weighted_mean_positive": 2.979640457212409,
+  "weighted_mean_unknown": 4.074417392418533,
   "weighted_mean_negative": 0.9459421503690593,
   "active_service_names": [
     "가족전용상담전화",

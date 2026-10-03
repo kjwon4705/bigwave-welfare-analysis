@@ -1,4 +1,4 @@
-<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>variables.html</title><style>*{box-sizing:border-box}body{margin:0;background:#f5f7fa;color:#203246;font:16px/1.75 'Malgun Gothic',sans-serif}header{background:#173b58;color:white;padding:34px max(20px,calc((100vw - 1060px)/2))}header h1{font-size:26px;margin:0}nav{background:white;border-bottom:1px solid #dce3ea;padding:14px 20px;display:flex;justify-content:center;gap:24px;flex-wrap:wrap}a{color:#236496}main{max-width:1100px;margin:auto;padding:25px 20px 65px}h1,h2{line-height:1.4}h2{margin-top:38px;font-size:22px}.note{background:#fff1d6;border-left:5px solid #bd7909;padding:18px;margin:22px 0}.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px}.card{padding:22px;background:white;border:1px solid #dae2eb;border-radius:10px}.card b{display:block;font-size:34px;color:#1c537b}.table{overflow:auto}table{border-collapse:collapse;background:white;width:100%;font-size:14px}th,td{padding:11px 13px;border:1px solid #dae2eb;text-align:left;vertical-align:top;min-width:95px}th{background:#e9eff6}figure{margin:28px 0}img{max-width:100%;height:auto;border:1px solid #dce3ea;background:white}figcaption,.small{font-size:13px;color:#526779}footer{border-top:1px solid #dce3ea;text-align:center;font-size:13px;padding:22px}code{background:#e6edf4;padding:2px 5px}li{margin:6px 0}</style></head><body><header><h1>복지서비스 기본 이용대상 분석</h1><div>2026-10-03 재분석 · 활성 서비스 8개 · 사회조사 2025</div></header><nav><a href="index.html">홈</a><a href="variables.html">중앙부처 복지서비스</a><a href="eda.html">사회조사 EDA</a><a href="mapping.html">공통변수</a><a href="codebook.html">공통 변수 상세 설명</a><a href="diffusion.html">분석방법 변경</a><a href="no_question_model.html">무질문 모델 B</a></nav><main><!-- no-question-model-link --><p class="note"><strong>별도 분석 추가:</strong> 추가 질문 없이 전 표본에서 판정하는 범위를 더 엄격하게 검토한 <a href="no_question_model.html">모델 B 보고서</a>를 확인하세요. 기존 8개는 이용 희망 등을 전제한 기본대상 분석입니다.</p><!-- /no-question-model-link --><h1>중앙부처 복지서비스</h1><p>원정책 461개에서 추가확인 대상 451개와 기존 확산모델의 19개를 모두 제외했습니다. 두 목록에서 17개가 겹쳐 총 453개를 제외했고, 8개를 재분석했습니다.</p><p class="note">여기서 기본대상 부합은 저장된 정책 원문의 일반 이용대상 조건과 일치한다는 뜻입니다. 서비스 이용 희망을 전제로 하며, 실제 신청 승인·선정·급여 지급을 예측하지 않습니다. 미확인을 부적격으로 처리하지 않았습니다.</p><h2>현재 분석하는 8개 서비스</h2><div class="table"><table class="dataframe">
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>variables.html</title><style>*{box-sizing:border-box}body{margin:0;background:#f5f7fa;color:#203246;font:16px/1.75 'Malgun Gothic',sans-serif}header{background:#173b58;color:white;padding:34px max(20px,calc((100vw - 1060px)/2))}header h1{font-size:26px;margin:0}nav{background:white;border-bottom:1px solid #dce3ea;padding:14px 20px;display:flex;justify-content:center;gap:24px;flex-wrap:wrap}a{color:#236496}main{max-width:1100px;margin:auto;padding:25px 20px 65px}h1,h2{line-height:1.4}h2{margin-top:38px;font-size:22px}.note{background:#fff1d6;border-left:5px solid #bd7909;padding:18px;margin:22px 0}.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px}.card{padding:22px;background:white;border:1px solid #dae2eb;border-radius:10px}.card b{display:block;font-size:34px;color:#1c537b}.table{overflow:auto}table{border-collapse:collapse;background:white;width:100%;font-size:14px}th,td{padding:11px 13px;border:1px solid #dae2eb;text-align:left;vertical-align:top;min-width:95px}th{background:#e9eff6}figure{margin:28px 0}img{max-width:100%;height:auto;border:1px solid #dce3ea;background:white}figcaption,.small{font-size:13px;color:#526779}footer{border-top:1px solid #dce3ea;text-align:center;font-size:13px;padding:22px}code{background:#e6edf4;padding:2px 5px}li{margin:6px 0}</style></head><body><header><h1>복지서비스 기본 이용대상 분석</h1><div>2026-10-03 재분석 · 활성 서비스 8개 · 사회조사 2025</div></header><nav><a href="index.html">홈</a><a href="variables.html">중앙부처 복지서비스</a><a href="eda.html">사회조사 EDA</a><a href="mapping.html">공통변수</a><a href="codebook.html">공통 변수 상세 설명</a><a href="diffusion.html">분석방법 변경</a><a href="no_question_model.html">무질문 모델 B</a><a href="preprocessing_fixes.html">전처리 수정</a></nav><main><!-- common-v3-note --><p class="note">공통변수 오류를 수정한 v3 결과입니다. 미관측 조건을 충족으로 처리하지 않습니다. <a href="preprocessing_fixes.html">수정 내역과 검증 범위</a></p><!-- no-question-model-link --><p class="note"><strong>별도 분석:</strong> 전 표본에서 추가 질문 없이 일반안내하는 범위를 검토한 <a href="no_question_model.html">모델 B 보고서</a>를 확인하세요.8개 분석은 v3 관측조건을 적용하며 실제 수급자격 확정이 아닙니다.</p><!-- /no-question-model-link --><h1>중앙부처 복지서비스</h1><p>원정책 461개에서 추가확인 대상 451개와 기존 확산모델의 19개를 모두 제외했습니다. 두 목록에서 17개가 겹쳐 총 453개를 제외했고, 8개를 재분석했습니다.</p><p class="note">여기서 기본대상 부합은 v3의 관측조건 또는 명시적 일반안내 범위에 부합한다는 뜻이며 실제 자격 확정이 아닙니다. 관측되지 않은 상담·교육 필요성은 미확인으로 남깁니다. 실제 신청 승인·선정·급여 지급을 예측하지 않습니다. 미확인을 부적격으로 처리하지 않았습니다.</p><h2>현재 분석하는 8개 서비스</h2><div class="table"><table class="dataframe">
   <thead>
     <tr style="text-align: right;">
       <th>서비스명</th>
@@ -17,8 +17,8 @@
     <tr>
       <td>무료법률상담</td>
       <td>법무부 인권구조과</td>
-      <td>법률상담을 원하는 국민</td>
-      <td>현재국적코드=1: 기본 안내; 그 외 미확인</td>
+      <td>법률상담이 필요한 국민</td>
+      <td>국적은 관측; 상담 필요성은 미확인</td>
     </tr>
     <tr>
       <td>마을변호사</td>
@@ -29,8 +29,8 @@
     <tr>
       <td>청소년성문화센터설치운영</td>
       <td>성평등가족부 아동청소년성보호과</td>
-      <td>일반 국민 대상 성교육 서비스</td>
-      <td>현재국적코드=1: 기본 안내; 그 외 미확인</td>
+      <td>아동청소년·교사·양육자 등 대상별 성교육</td>
+      <td>개별 프로그램 대상 범위가 미확정이므로 미확인</td>
     </tr>
     <tr>
       <td>노후준비서비스</td>
@@ -41,20 +41,20 @@
     <tr>
       <td>디지털배움터</td>
       <td>과학기술정보통신부</td>
-      <td>디지털 교육을 원하는 국민</td>
-      <td>현재국적코드=1: 기본 안내; 그 외 미확인</td>
+      <td>AI·디지털에 어려움을 겪는 국민</td>
+      <td>디지털 어려움은 미관측이므로 미확인</td>
     </tr>
     <tr>
       <td>장애인 집합 정보화교육</td>
       <td>과학기술정보통신부</td>
-      <td>정보화교육을 원하는 장애인</td>
-      <td>장애인복지카드_소유여부=1: 기본 안내; 미소유/결측은 미확인</td>
+      <td>정보화교육이 필요한 장애인</td>
+      <td>등록상태·교육 필요성은 미확인; 카드 미소유로 비장애 추정 금지</td>
     </tr>
     <tr>
       <td>WEE 클래스 상담지원</td>
       <td>교육부 학생정서지원과</td>
-      <td>초·중·고 재학생의 일반 상담</td>
-      <td>교육정도코드∈{1,2,3} AND 재학상태코드=3; 결측 보존</td>
+      <td>초·중·고 재학생 중 상담·교육활동이 필요한 학생</td>
+      <td>초중고 재학 AND 상담 필요성(미관측); 미재학생은 관측조건 비해당</td>
     </tr>
   </tbody>
 </table></div><h2>기본대상 분류 결과</h2><div class="table"><table class="dataframe">
@@ -84,12 +84,12 @@
     <tr>
       <td>WLF00006308</td>
       <td>무료법률상담</td>
-      <td>33388</td>
-      <td>97.96</td>
       <td>0</td>
       <td>0.00</td>
-      <td>556</td>
-      <td>2.04</td>
+      <td>0</td>
+      <td>0.00</td>
+      <td>33944</td>
+      <td>100.00</td>
     </tr>
     <tr>
       <td>WLF00006295</td>
@@ -104,12 +104,12 @@
     <tr>
       <td>WLF00004650</td>
       <td>청소년성문화센터설치운영</td>
-      <td>33388</td>
-      <td>97.96</td>
       <td>0</td>
       <td>0.00</td>
-      <td>556</td>
-      <td>2.04</td>
+      <td>0</td>
+      <td>0.00</td>
+      <td>33944</td>
+      <td>100.00</td>
     </tr>
     <tr>
       <td>WLF00000031</td>
@@ -124,32 +124,32 @@
     <tr>
       <td>WLF00001083</td>
       <td>디지털배움터</td>
-      <td>33388</td>
-      <td>97.96</td>
       <td>0</td>
       <td>0.00</td>
-      <td>556</td>
-      <td>2.04</td>
+      <td>0</td>
+      <td>0.00</td>
+      <td>33944</td>
+      <td>100.00</td>
     </tr>
     <tr>
       <td>WLF00000066</td>
       <td>장애인 집합 정보화교육</td>
-      <td>2052</td>
-      <td>4.85</td>
       <td>0</td>
       <td>0.00</td>
-      <td>31892</td>
-      <td>95.15</td>
+      <td>0</td>
+      <td>0.00</td>
+      <td>33944</td>
+      <td>100.00</td>
     </tr>
     <tr>
       <td>WLF00003263</td>
       <td>WEE 클래스 상담지원</td>
-      <td>1707</td>
-      <td>5.41</td>
-      <td>32237</td>
-      <td>94.59</td>
       <td>0</td>
       <td>0.00</td>
+      <td>32237</td>
+      <td>94.59</td>
+      <td>1707</td>
+      <td>5.41</td>
     </tr>
   </tbody>
 </table></div><p>비율 분모는 정책마다 동일한 전체 응답자 가중치 합입니다. 추가확인 응답자를 분모에서 빼지 않습니다.</p><p><a href="tables/analysis_tables.xlsx">집계표 엑셀 내려받기</a> · <a href="tables/정책별_기본대상.csv">정책별 집계 CSV</a> · <a href="reproduce/README.md">재현 방법과 코드</a></p></main><footer>복지로 보관 원문 · 통계청 사회조사 2025 · 원자료 비공개, 집계 결과만 공개</footer></body></html>
